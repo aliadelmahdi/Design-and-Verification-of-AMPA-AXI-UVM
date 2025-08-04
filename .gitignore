@@ -1,2 +1,35 @@
-vivado*
-build
+# Ignore workspace-specific files
+work/
+modelsim.ini
+*.cr.mti
+*.mpf
+*.mpf_new
+*.bak
+*.ucdb
+vsim.wlf
+transcript
+waves.wlf
+waves1.wlf
+tcl_stacktrace.txt
+certe_dump.xml
+vsim_stacktrace.vstf
+vish_stacktrace.vstf
+IHI0024C_amba_axi_protocol_spec.pdf
+~$verification plan.xlsx
+# Ignore auto-generated temporary files
+wlft*
+*.vstf
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore version control files
+.git/
+.svn/
+.hg/
+CVS/
+
+# Ignore IDE/editor-specific files
+.vscode/
+.gitignore
