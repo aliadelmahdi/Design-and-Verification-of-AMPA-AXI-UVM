@@ -27,9 +27,10 @@
 interface/shared_pkg.sv
 interface/AXI_if.sv
 
-# Design file
+# Design files
 design/AXI_design/designer_rtl/design.sv
 design/AXI_design/golden_models/golden_models.sv
+
 # Assertions
 design/AXI_Assertions/AXI_assertions.sv
 

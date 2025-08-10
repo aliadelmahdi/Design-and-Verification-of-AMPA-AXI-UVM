@@ -10,17 +10,17 @@ vcd file waves/waves.vcd
 vcd add -r /* 
 run -all
 #*******************************************#
-# Functional Coverage Report
-coverage report -detail -cvg -directive \
-    -output "reports/Functional Coverage Report.txt" \
-    /AXI_env_pkg/AXI_coverage/*
+# # Functional Coverage Report
+# coverage report -detail -cvg -directive \
+#     -output "reports/Functional Coverage Report.txt" \
+#     /AXI_env_pkg/AXI_coverage/*
 
-coverage report -detail -cvg -directive \
-    -html -output "reports/Functional Coverage Report" \
-    /AXI_env_pkg/AXI_coverage/*
+# coverage report -detail -cvg -directive \
+#     -html -output "reports/Functional Coverage Report" \
+#     /AXI_env_pkg/AXI_coverage/*
 
 #*******************************************#
 quit -sim
-# Save Coverage Report
-vcover report top.ucdb -details -annotate -all -output "reports/Coverage Report - Code, Assertions, and Directives.txt"
-vcover report top.ucdb -details -annotate -html -output "reports/Coverage Report - Code, Assertions, and Directives"
+# # Save Coverage Report
+# vcover report top.ucdb -details -annotate -all -output "reports/Coverage Report - Code, Assertions, and Directives.txt"
+# vcover report top.ucdb -details -annotate -html -output "reports/Coverage Report - Code, Assertions, and Directives"

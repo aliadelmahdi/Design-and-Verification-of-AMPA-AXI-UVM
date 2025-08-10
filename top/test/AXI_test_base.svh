@@ -3,11 +3,15 @@
 
 class AXI_test_base extends uvm_test;
         `uvm_component_utils(AXI_test_base)
+
         AXI_env axi_env; // Enviroment handle to the AXI4
+
         // Configuration objects for master and slave configurations
         AXI_config axi_master_cnfg; // Master configuration
         AXI_config axi_slave_cnfg; // Slave configuration
+        
         virtual AXI_if axi_if; // Virtual interface handle
+
         AXI_master_main_sequence axi_master_main_seq; // Master main test sequence
         AXI_slave_main_sequence axi_slave_main_seq; // Slave main test sequence
         AXI_master_reset_sequence axi_master_reset_seq; // Master reset test sequence
@@ -22,10 +26,12 @@ class AXI_test_base extends uvm_test;
             super.build_phase(phase); // Call parent class's build_phase
             // Create instances from the UVM factory
             axi_env = AXI_env::type_id::create("env",this);
+
             axi_master_cnfg = AXI_config::type_id::create("AXI_master_config",this);
-            axi_slave_cnfg = AXI_config::type_id::create("AXI_slave_config",this);
-            axi_master_main_seq = AXI_master_main_sequence::type_id::create("master_main_seq",this);
-            axi_slave_main_seq = AXI_slave_main_sequence::type_id::create("slave_main_seq",this);
+            axi_slave_cnfg  = AXI_config::type_id::create("AXI_slave_config",this);
+
+            axi_master_main_seq  = AXI_master_main_sequence::type_id::create("master_main_seq",this);
+            axi_slave_main_seq   = AXI_slave_main_sequence::type_id::create("slave_main_seq",this);
             axi_master_reset_seq = AXI_master_reset_sequence::type_id::create("reset_seq",this);
 
             // Retrieve the virtual interface for AXI master from the UVM configuration database
