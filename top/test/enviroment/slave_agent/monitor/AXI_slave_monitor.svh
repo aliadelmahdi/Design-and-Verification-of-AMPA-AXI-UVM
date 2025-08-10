@@ -1,5 +1,5 @@
-`ifndef AXI_SLAVE_MONITOR_SV
-`define AXI_SLAVE_MONITOR_SV
+`ifndef AXI_SLAVE_MONITOR_SVH
+`define AXI_SLAVE_MONITOR_SVH
 
     class AXI_slave_monitor extends uvm_monitor;
 
@@ -39,4 +39,4 @@
         
     endclass : AXI_slave_monitor
 
-`endif // AXI_SLAVE_MONITOR_SV
+`endif // AXI_SLAVE_MONITOR_SVH

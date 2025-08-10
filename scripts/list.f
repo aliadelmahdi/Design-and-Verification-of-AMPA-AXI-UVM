@@ -1,6 +1,8 @@
 +incdir+./design
 +incdir+./design/AXI_Assertions
 +incdir+./design/AXI_design
++incdir+./design/AXI_design/designer_rtl
++incdir+./design/AXI_design/golden_models
 +incdir+./interface
 +incdir+./objects
 +incdir+./objects/master_objects
@@ -26,8 +28,8 @@ interface/shared_pkg.sv
 interface/AXI_if.sv
 
 # Design file
-design/AXI_design/design.sv
-
+design/AXI_design/designer_rtl/design.sv
+design/AXI_design/golden_models/golden_models.sv
 # Assertions
 design/AXI_Assertions/AXI_assertions.sv
 

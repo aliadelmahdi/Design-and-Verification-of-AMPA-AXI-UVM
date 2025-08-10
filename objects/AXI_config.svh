@@ -1,5 +1,5 @@
-`ifndef AXI_CONFIG_SV
-`define AXI_CONFIG_SV
+`ifndef AXI_CONFIG_SVH
+`define AXI_CONFIG_SVH
 
     class AXI_config extends uvm_object;
 
@@ -14,4 +14,4 @@
         
     endclass : AXI_config
 
-`endif // AXI_CONFIG_SV
+`endif // AXI_CONFIG_SVH

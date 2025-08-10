@@ -1,7 +1,7 @@
-`ifndef AXI_SLAVE_SV
-`define AXI_SLAVE_SV
+`ifndef AXI_SLAVE_GLD_SV
+`define AXI_SLAVE_GLD_SV
 
-module AXI_slave (AXI_if.slave s_axi);
+module AXI_slave_gld (AXI_if.slave_gld s_axi);
 
 	typedef enum logic [2 : 0] {IDLE, RADDR, RDATA, WADDR, WDATA, WRESP} state_type;
 	state_type state, next_state;
@@ -104,6 +104,6 @@ module AXI_slave (AXI_if.slave s_axi);
 		end
 	end
    
-endmodule : AXI_slave
+endmodule : AXI_slave_gld
 
-`endif // AXI_SLAVE_SV
+`endif // AXI_SLAVE_GLD_SV

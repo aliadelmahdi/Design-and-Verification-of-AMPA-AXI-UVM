@@ -1,5 +1,5 @@
-`ifndef AXI_TEST_BASE_SV
-`define AXI_TEST_BASE_SV
+`ifndef AXI_TEST_BASE_SVH
+`define AXI_TEST_BASE_SVH
 
 class AXI_test_base extends uvm_test;
         `uvm_component_utils(AXI_test_base)
@@ -64,4 +64,4 @@ class AXI_test_base extends uvm_test;
 
 endclass : AXI_test_base
 
-`endif // AXI_TEST_BASE_SV
+`endif // AXI_TEST_BASE_SVH

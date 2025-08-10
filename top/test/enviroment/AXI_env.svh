@@ -1,5 +1,5 @@
-`ifndef AXI_ENV_SV
-`define AXI_ENV_SV
+`ifndef AXI_ENV_SVH
+`define AXI_ENV_SVH
 
     class AXI_env extends uvm_env;
         `uvm_component_utils(AXI_env)
@@ -39,4 +39,4 @@
         
     endclass : AXI_env
     
-`endif // AXI_ENV_SV
+`endif // AXI_ENV_SVH

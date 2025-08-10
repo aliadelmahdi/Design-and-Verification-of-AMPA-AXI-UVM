@@ -1,7 +1,7 @@
-`ifndef AXI_MASTER_SV
-`define AXI_MASTER_SV
+`ifndef AXI_MASTER_GLD_SV
+`define AXI_MASTER_GLD_SV
 
-module AXI_master (AXI_if.master m_axi);
+module AXI_master_gld (AXI_if.master_gld m_axi);
 	typedef enum logic [2 : 0] {IDLE, RADDR, RDATA, WADDR, WDATA, WRESP} state_type;
 	state_type state, next_state;
 
@@ -88,6 +88,6 @@ module AXI_master (AXI_if.master m_axi);
 	end
 
     
-endmodule : AXI_master
+endmodule : AXI_master_gld
 
-`endif // AXI_MASTER_SV
+`endif // AXI_MASTER_GLD_SV

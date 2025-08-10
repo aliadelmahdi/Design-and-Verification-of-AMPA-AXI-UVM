@@ -1,5 +1,5 @@
-`ifndef AXI_MASTER_RESET_SEQUENCE_SV
-`define AXI_MASTER_RESET_SEQUENCE_SV
+`ifndef AXI_MASTER_RESET_SEQUENCE_SVH
+`define AXI_MASTER_RESET_SEQUENCE_SVH
 
     class AXI_master_reset_sequence extends uvm_sequence #(AXI_master_seq_item);
 
@@ -20,4 +20,4 @@
         
     endclass : AXI_master_reset_sequence
 
-`endif // AXI_MASTER_RESET_SEQUENCE_SV
+`endif // AXI_MASTER_RESET_SEQUENCE_SVH

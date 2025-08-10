@@ -1,5 +1,5 @@
-`ifndef AXI_MASTER_AGENT_SV
-`define AXI_MASTER_AGENT_SV
+`ifndef AXI_MASTER_AGENT_SVH
+`define AXI_MASTER_AGENT_SVH
 
     class AXI_master_agent extends uvm_agent;
 
@@ -43,4 +43,4 @@
         
     endclass : AXI_master_agent
 
-`endif // AXI_MASTER_AGENT_SV
+`endif // AXI_MASTER_AGENT_SVH

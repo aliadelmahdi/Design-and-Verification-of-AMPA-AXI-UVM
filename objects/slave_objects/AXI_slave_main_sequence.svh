@@ -1,5 +1,5 @@
-`ifndef AXI_SLAVE_MAIN_SEQUENCE_SV
-`define AXI_SLAVE_MAIN_SEQUENCE_SV
+`ifndef AXI_SLAVE_MAIN_SEQUENCE_SVH
+`define AXI_SLAVE_MAIN_SEQUENCE_SVH
 
     class AXI_slave_main_sequence extends uvm_sequence #(AXI_slave_seq_item);
 
@@ -24,4 +24,4 @@
         
     endclass : AXI_slave_main_sequence
 
-`endif // AXI_SLAVE_MAIN_SEQUENCE_SV
+`endif // AXI_SLAVE_MAIN_SEQUENCE_SVH

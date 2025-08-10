@@ -1,5 +1,5 @@
-`ifndef AXI_MASTER_SEQ_ITEM_SV
-`define AXI_MASTER_SEQ_ITEM_SV
+`ifndef AXI_MASTER_SEQ_ITEM_SVH
+`define AXI_MASTER_SEQ_ITEM_SVH
 
     class AXI_master_seq_item extends uvm_sequence_item;
 
@@ -14,4 +14,4 @@
 
     endclass : AXI_master_seq_item
 
-`endif // AXI_MASTER_SEQ_ITEM_SV
+`endif // AXI_MASTER_SEQ_ITEM_SVH

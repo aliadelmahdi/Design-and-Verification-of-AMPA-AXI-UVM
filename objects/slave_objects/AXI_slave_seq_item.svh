@@ -1,5 +1,5 @@
-`ifndef AXI_SLAVE_SEQ_ITEM_SV
-`define AXI_SLAVE_SEQ_ITEM_SV
+`ifndef AXI_SLAVE_SEQ_ITEM_SVH
+`define AXI_SLAVE_SEQ_ITEM_SVH
     class AXI_slave_seq_item extends uvm_sequence_item;
       
         `uvm_object_utils_begin(AXI_slave_seq_item)
@@ -11,4 +11,4 @@
         
     endclass : AXI_slave_seq_item
 
-`endif // AXI_SLAVE_SEQ_ITEM_SV
+`endif // AXI_SLAVE_SEQ_ITEM_SVH

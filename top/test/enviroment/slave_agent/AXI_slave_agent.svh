@@ -1,5 +1,5 @@
-`ifndef AXI_SLAVE_AGENT_SV
-`define AXI_SLAVE_AGENT_SV
+`ifndef AXI_SLAVE_AGENT_SVH
+`define AXI_SLAVE_AGENT_SVH
 
     class AXI_slave_agent extends uvm_agent;
 
@@ -48,4 +48,4 @@
 
     endclass : AXI_slave_agent
 
-`endif // AXI_SLAVE_AGENT_SV
+`endif // AXI_SLAVE_AGENT_SVH

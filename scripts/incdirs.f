@@ -2,6 +2,8 @@
 +incdir+./design
 +incdir+./design/AXI_Assertions
 +incdir+./design/AXI_design
++incdir+./design/AXI_design/designer_rtl
++incdir+./design/AXI_design/golden_models
 +incdir+./interface
 +incdir+./objects
 +incdir+./objects/master_objects
@@ -25,10 +27,12 @@ AXI_Assertions/AXI_master_sva.sv
 AXI_Assertions/AXI_slave_sva.sv
 AXI_config.sv
 AXI_defines.svh
-AXI_design/AXI_master.sv
-AXI_design/AXI_slave.sv
-AXI_design/design.sv
-AXI_design/golden_model.sv
+AXI_design/designer_rtl/AXI_master.sv
+AXI_design/designer_rtl/AXI_slave.sv
+AXI_design/designer_rtl/design.sv
+AXI_design/golden_models/AXI_master_gld.sv
+AXI_design/golden_models/AXI_slave_gld.sv
+AXI_design/golden_models/golden_models.sv
 AXI_if.sv
 master_objects/AXI_master_main_sequence.sv
 master_objects/AXI_master_reset_sequence.sv

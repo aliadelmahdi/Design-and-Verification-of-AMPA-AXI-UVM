@@ -1,15 +1,15 @@
-`ifndef AXI_MASTER_SEQUENCER_SV
-`define AXI_MASTER_SEQUENCER_SV
+`ifndef AXI_SLAVE_SEQUENCER_SVH
+`define AXI_SLAVE_SEQUENCER_SVH
 
-    class AXI_master_sequencer extends uvm_sequencer #(AXI_master_seq_item);
+    class AXI_slave_sequencer extends uvm_sequencer #(AXI_slave_seq_item);
 
-        `uvm_component_utils(AXI_master_sequencer);
-      
+        `uvm_component_utils(AXI_slave_sequencer);
+
         // Default Constructor
-        function new(string name = "AXI_master_sequence", uvm_component parent);
+        function new(string name = "AXI_slave_sequence", uvm_component parent);
             super.new(name,parent);
         endfunction : new
-
+        
         // Build Phase
         function void build_phase(uvm_phase phase);
             super.build_phase(phase);
@@ -25,6 +25,6 @@
             super.run_phase(phase);
         endtask : run_phase
 
-    endclass : AXI_master_sequencer
+    endclass : AXI_slave_sequencer
 
-`endif // AXI_MASTER_SEQUENCER_SV
+`endif // AXI_SLAVE_SEQUENCER_SVH

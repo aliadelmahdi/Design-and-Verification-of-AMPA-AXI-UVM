@@ -3,7 +3,7 @@
 // http://www.gstitt.ece.ufl.edu/courses/fall15/eel4720_5721/labs/refs/AXI4_specification.pdf
 import shared_pkg::*; // For enums and parameters
 
-interface AXI_if(input bit aclk); // Clock. The rising edge of ACLK times all transfers on the AXI.
+interface AXI_if(input bit aclk);
 
 	logic areset_n;
 	logic start_read;
@@ -45,7 +45,7 @@ interface AXI_if(input bit aclk); // Clock. The rising edge of ACLK times all tr
 	logic bready;
 
 	// Modport for active AXI Master
-	modport master (
+	modport master_gld (
 	output araddr, arvalid, arlen, arsize, arburst,
 	input  arready, aclk, areset_n, start_read, start_write,
 	input  rdata, rresp, rvalid, rlast,
@@ -59,7 +59,7 @@ interface AXI_if(input bit aclk); // Clock. The rising edge of ACLK times all tr
 	);
 
 	// Modport for active AXI Slave
-	modport slave (
+	modport slave_gld (
 	input  araddr, arvalid, arlen, arsize, arburst, aclk, areset_n,
 	output arready,
 	output rdata, rresp, rvalid, rlast,

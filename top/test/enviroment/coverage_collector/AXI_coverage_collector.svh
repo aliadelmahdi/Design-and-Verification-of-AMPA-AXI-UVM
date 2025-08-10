@@ -1,5 +1,5 @@
-`ifndef AXI_COVERAGE_SV
-`define AXI_COVERAGE_SV
+`ifndef AXI_COVERAGE_SVH
+`define AXI_COVERAGE_SVH
 
     class AXI_coverage extends uvm_component;
         `uvm_component_utils(AXI_coverage)
@@ -52,4 +52,4 @@
 
     endclass : AXI_coverage
 
-`endif // AXI_COVERAGE_SV
+`endif // AXI_COVERAGE_SVH

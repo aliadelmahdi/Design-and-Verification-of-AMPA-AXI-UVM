@@ -1,5 +1,5 @@
-`ifndef AXI_MASTER_MONITOR_SV
-`define AXI_MASTER_MONITOR_SV
+`ifndef AXI_MASTER_MONITOR_SVH
+`define AXI_MASTER_MONITOR_SVH
 
     class AXI_master_monitor extends uvm_monitor;
         `uvm_component_utils (AXI_master_monitor)
@@ -38,4 +38,4 @@
         
     endclass : AXI_master_monitor
 
-`endif // AXI_MASTER_MONITOR_SV
+`endif // AXI_MASTER_MONITOR_SVH

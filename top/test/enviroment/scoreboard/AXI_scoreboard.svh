@@ -1,5 +1,5 @@
-`ifndef AXI_SCOREBOARD_SV
-`define AXI_SCOREBOARD_SV
+`ifndef AXI_SCOREBOARD_SVH
+`define AXI_SCOREBOARD_SVH
 
     class AXI_scoreboard extends uvm_scoreboard;
         `uvm_component_utils(AXI_scoreboard)
@@ -64,4 +64,4 @@
         
     endclass : AXI_scoreboard
 
-`endif // AXI_SCOREBOARD_SV
+`endif // AXI_SCOREBOARD_SVH
