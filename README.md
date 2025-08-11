@@ -2,6 +2,8 @@
 
 > Master/Slave RTL + Golden Models • UVM Environment with Active Master Agent & Passive Slave Agent • AXI Protocol Assertions • Functional & Code Coverage • Cross‑platform run scripts (Windows/Linux) • Waveform & Reports
 
+> **Note:** This repository is still under active development — features and files are being completed.
+
 ---
 
 ## Table of Contents
