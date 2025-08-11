@@ -82,7 +82,7 @@ Typical deployments:
 * **AXI4‑Lite**: simplified subset (no bursts), ideal for control/status registers.
 * **AXI4‑Stream**: unidirectional streaming with no address channel.
 
-**Common handshake**: every channel uses **VALID/READY** two‑way flow control. Transfers complete on a rising edge where both VALID and READY are asserted.
+**Common handshake**: every channel uses **valid/ready** two‑way flow control. Transfers complete on a rising edge where both valid and ready are asserted.
 
 
 ---
@@ -93,14 +93,14 @@ Each block implements a compact FSM covering address, data, and response phases.
 
 ### Master — FSM
 
-**States (example):** `IDLE → RADDR → RDATA` and `IDLE → WADDR → WDATA → WRESP`.
+**States (example):** `IDLE → RADDR → RDATA` and `IDLE → WADDR → wdata → WRESP`.
 
 * **IDLE**: wait for `start_read` / `start_write` (via `AXI_if`).
-* **RADDR**: drive `ARADDR/ARLEN/ARSIZE/ARBURST` and assert `ARVALID`; advance when `ARREADY`.
-* **RDATA**: assert `RREADY`; collect beats until `RLAST`; handle `RRESP`.
-* **WADDR**: drive `AW*` and assert `AWVALID`; wait for `AWREADY`.
-* **WDATA**: stream `WDATA/WSTRB`, assert `WVALID`; assert `WLAST` on final beat; await `WREADY`.
-* **WRESP**: assert `BREADY` and check `BRESP` (OKAY/SLVERR/DECERR) then return to `IDLE`.
+* **RADDR**: drive `araddr/arlen/arsize/arburst` and assert `arvalid`; advance when `arready`.
+* **RDATA**: assert `rready`; collect beats until `rlast`; handle `rresp`.
+* **WADDR**: drive `aw*` and assert `awvalid`; wait for `awready`.
+* **WDATA**: stream `wdata/wstrb`, assert `wvalid`; assert `wlast` on final beat; await `wready`.
+* **WRESP**: assert `bready` and check `bresp` (OKAY/SLVERR/DECERR) then return to `IDLE`.
 
 Master Golden Model FSM
 <p align="center">
@@ -109,8 +109,8 @@ Master Golden Model FSM
 
 ### Slave — FSM
 
-**Read path:** address accept → data return → final `RLAST` and `RRESP`.
-**Write path:** address accept → data absorb (track beats, check `WLAST`) → response.
+**Read path:** address accept → data return → final `rlast` and `rresp`.
+**Write path:** address accept → data absorb (track beats, check `wlast`) → response.
 
 Emphasizes **protocol correctness** and simple memory model behavior for comparison.
 
@@ -157,7 +157,7 @@ The UVM environment is packaged under `top/test/enviroment/` (intentional spelli
 ### Scoreboard & Coverage Collector
 
 * **Scoreboard** consumes **golden model outputs** and **observed RTL** to check data, response, and timing expectations.
-* **Coverage** tracks: burst length/size/type, read/write mixes, back‑pressure, responses, `WSTRB` patterns, and corner cases (single‑beat vs multi‑beat, `RLAST/WLAST` alignment, etc.). See `coverage_collector/AXI_coverage_collector.sv`.
+* **Coverage** tracks: burst length/size/type, read/write mixes, back‑pressure, responses, `wstrb` patterns, and corner cases (single‑beat vs multi‑beat, `rlast/wlast` alignment, etc.). See `coverage_collector/AXI_coverage_collector.sv`.
 
 ---
 
@@ -170,9 +170,9 @@ Protocol properties live in `design/AXI_Assertions/`:
 
 Representative checks:
 
-* **VALID/READY** handshake completion and stability of address/control when `VALID && !READY`.
-* **Write path**: `WLAST` must assert on the final beat; `BVALID` only after **both** AW and all W handshakes.
-* **Read path**: `RLAST` must assert on last beat of a burst; `RRESP` stability while `RVALID && !RREADY`.
+* **valid/ready** handshake completion and stability of address/control when `valid && !ready`.
+* **Write path**: `wlast` must assert on the final beat; `bvalid` only after **both** aw and all w handshakes.
+* **Read path**: `rlast` must assert on last beat of a burst; `rresp` stability while `rvalid && !rready`.
 
 Assertions run during simulation and are summarized in the generated reports.
 
