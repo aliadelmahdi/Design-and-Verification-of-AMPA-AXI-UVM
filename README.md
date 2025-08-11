@@ -65,7 +65,7 @@ Waveform post-processing is available via **GTKWave** scripts.
 **AMBA AXI4** is a de‑facto standard interconnect for SoCs. It provides a high‑performance, memory‑mapped, burst‑capable interface between masters (CPUs, DMA engines) and slaves (memories, peripherals). AXI4 is ubiquitous in **ARM‑based SoCs, Xilinx/AMD Vivado IP Integrator designs (Zynq/ZynqMP/Versal)**, and custom ASICs/FPGA systems that require scalable bandwidth, well‑defined handshakes, and decoupled address/data channels.
 
 <p align="center">
-  <img width="565" height="644" alt="axi" src="https://github.com/user-attachments/assets/382af717-173c-4218-9274-eec7d7f92d44" />
+  <img width="565" height="644" alt="axi" src="https://github.com/user-attachments/assets/938bdd5b-8491-413e-8451-d38a674ff2c1" />
 </p>
 
 Typical deployments:
@@ -124,7 +124,7 @@ Slave Golden Model FSM
 ## UVM Verification Architecture
 
 <p align="center">
-  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/938bdd5b-8491-413e-8451-d38a674ff2c1" />
+  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/62e5e99e-861e-4cc5-835f-3df09f9b3a02" />
 </p>
 
 The **`AXI_if.sv`** interface defines signals and **modports** for master/slave **golden models** and for **UVM drivers/monitors**, enabling clean separation of concerns and preventing illegal multi‑driving.
