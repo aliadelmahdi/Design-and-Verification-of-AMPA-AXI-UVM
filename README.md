@@ -124,7 +124,7 @@ Slave Golden Model FSM
 ## UVM Verification Architecture
 
 <p align="center">
-  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/62e5e99e-861e-4cc5-835f-3df09f9b3a02" />
+  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/9e8a243f-1577-4e3f-a034-327c4359997b" />
 </p>
 
 The **`AXI_if.sv`** interface defines signals and **modports** for master/slave **golden models** and for **UVM drivers/monitors**, enabling clean separation of concerns and preventing illegal multi‑driving.
