@@ -1,17 +1,20 @@
 `ifndef AXI_MASTER_SEQ_ITEM_SVH
 `define AXI_MASTER_SEQ_ITEM_SVH
 
-    class AXI_master_seq_item extends uvm_sequence_item;
+// AXI Master Sequence Item - defines a single master transaction's data fields
+class AXI_master_seq_item extends uvm_sequence_item;
 
-        // Default Constructor
-        function new(string name = "AXI_master_seq_item");
-            super.new(name);
-        endfunction : new
+    // Constructor
+    function new(string name = "AXI_master_seq_item");
+        super.new(name);
+    endfunction : new
 
-        `uvm_object_utils_begin(AXI_master_seq_item)
-            // `uvm_field_int(SWRITE, UVM_DEFAULT)
-        `uvm_object_utils_end
+    // Register fields with the UVM factory and enable automation
+    `uvm_object_utils_begin(AXI_master_seq_item)
+        // Example: `uvm_field_int(SWRITE, UVM_DEFAULT) // Write control bit
+        // TODO: Add AXI transaction fields (addr, data, burst, etc.)
+    `uvm_object_utils_end
 
-    endclass : AXI_master_seq_item
+endclass : AXI_master_seq_item
 
 `endif // AXI_MASTER_SEQ_ITEM_SVH

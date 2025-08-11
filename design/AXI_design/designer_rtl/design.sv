@@ -1,4 +1,5 @@
-import shared_pkg::*; // For enums and parameters
+import shared_pkg::*; // Import shared typedefs, enums, and parameters used in AXI protocol
 
-`include "AXI_master.sv"
-`include "AXI_slave.sv"
+// Include synthesizable DUT components for AXI interface
+`include "AXI_master.sv" // AXI master RTL implementation
+`include "AXI_slave.sv"  // AXI slave RTL implementation

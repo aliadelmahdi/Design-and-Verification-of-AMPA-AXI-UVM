@@ -1,33 +1,44 @@
-import uvm_pkg::*;
-import AXI_env_pkg::*;
-import AXI_test_pkg::*;
-import shared_pkg::*; // For enums and parameters
+import uvm_pkg::*;        // UVM base classes and utilities
+import AXI_env_pkg::*;    // AXI environment components
+import AXI_test_pkg::*;   // AXI test definitions
+import shared_pkg::*;     // Shared enums, typedefs, parameters
+
 `timescale `TIME_UNIT / `TIME_PRECISION
 
 module tb_top;
-    bit aclk;
+    bit aclk; // AXI clock signal
+
+    // ------------------------
     // Clock Generation
+    // ------------------------
     initial begin
         aclk = `LOW;
-        forever #(`CLK_PERIOD/2) aclk = ~ aclk;
+        forever #(`CLK_PERIOD/2) aclk = ~aclk; // Toggle clock every half period
     end
    
-    AXI_env env_instance; // Instantiate the AXI4 enviroment
-    AXI_test_base test; // Instantiate the AXI4 test
+    // Environment and Test handles
+    AXI_env       env_instance; // AXI environment instance
+    AXI_test_base test;         // Base AXI test instance
 
-    // Instantiate the interface
-    AXI_if axi_if (aclk);
-    AXI_master_gld master_gld (axi_if);
-    AXI_slave_gld slave_gld (axi_if);
+    // ------------------------
+    // DUT & Interface Instances
+    // ------------------------
+    AXI_if         axi_if (aclk);       // AXI interface
+    AXI_master_gld master_gld (axi_if); // Golden model for AXI master
+    AXI_slave_gld  slave_gld (axi_if);  // Golden model for AXI slave
 
-
+    // ------------------------
+    // Simulation Control
+    // ------------------------
     initial begin
-      uvm_top.set_report_verbosity_level(UVM_MEDIUM); // Set verbosity level
-      uvm_top.finish_on_completion = `DISABLE_FINISH; // Prevent UVM from calling $finish
-      uvm_config_db#(virtual AXI_if)::set(null, "*", "axi_if", axi_if); // Set AXI interface globally
-      run_test("AXI_test_base"); // Start the UVM test
-      `uvm_info("SEED", $sformatf("Current seed: %0d", $get_initial_random_seed()), UVM_LOW)
-      repeat(3) `display_separator
-      $stop; // Stop simulation after test execution
+        uvm_top.set_report_verbosity_level(UVM_MEDIUM);    // Set default UVM verbosity
+        uvm_top.finish_on_completion = `DISABLE_FINISH;    // Prevent automatic $finish
+        uvm_config_db#(virtual AXI_if)::set(null, "*", "axi_if", axi_if); // Set interface globally
+        
+        run_test("AXI_test_base"); // Start UVM test
+
+        `uvm_info("SEED", $sformatf("Current seed: %0d", $get_initial_random_seed()), UVM_LOW)
+        repeat(3) `display_separator // Print separator lines
+        $stop; // Stop simulation after test completion
     end
 endmodule : tb_top
