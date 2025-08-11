@@ -11,8 +11,8 @@
 * [Protocol Primer (AXI4 vs AXI4‑Lite vs AXI4‑Stream)](#protocol-primer-axi4-vs-axi4lite-vs-axi4stream)
 * [Finite State Machines (FSMs)](#finite-state-machines-fsms)
 
-  * [Master — Golden Model FSM](#master--fsm)
-  * [Slave — Golden Model FSM](#slave--fsm)
+  * [Master — FSM](#master--fsm)
+  * [Slave — FSM](#slave--fsm)
 * [UVM Verification Architecture](#uvm-verification-architecture)
 
   * [Why Active Master Agent & Passive Slave Agent?](#why-active-master-agent--passive-slave-agent)
@@ -64,6 +64,10 @@ Waveform post-processing is available via **GTKWave** scripts.
 
 **AMBA AXI4** is a de‑facto standard interconnect for SoCs. It provides a high‑performance, memory‑mapped, burst‑capable interface between masters (CPUs, DMA engines) and slaves (memories, peripherals). AXI4 is ubiquitous in **ARM‑based SoCs, Xilinx/AMD Vivado IP Integrator designs (Zynq/ZynqMP/Versal)**, and custom ASICs/FPGA systems that require scalable bandwidth, well‑defined handshakes, and decoupled address/data channels.
 
+<p align="center">
+  <img width="565" height="644" alt="axi" src="https://github.com/user-attachments/assets/382af717-173c-4218-9274-eec7d7f92d44" />
+</p>
+
 Typical deployments:
 
 * **Processor ↔ Memory/Cache** interfaces
@@ -85,12 +89,7 @@ Typical deployments:
 
 ## Finite State Machines (FSMs)
 
-Each block implements a compact FSM covering address, data, and response phases. You’ll find **diagrams** in `docs/images/`:
-
-* `docs/images/fsm_master_gld.png`
-* `docs/images/fsm_master_rtl.png`
-* `docs/images/fsm_slave_gld.png`
-* `docs/images/fsm_slave_rtl.png`
+Each block implements a compact FSM covering address, data, and response phases.
 
 ### Master — FSM
 
@@ -103,8 +102,9 @@ Each block implements a compact FSM covering address, data, and response phases.
 * **WDATA**: stream `WDATA/WSTRB`, assert `WVALID`; assert `WLAST` on final beat; await `WREADY`.
 * **WRESP**: assert `BREADY` and check `BRESP` (OKAY/SLVERR/DECERR) then return to `IDLE`.
 
+Master Golden Model FSM
 <p align="center">
-  <img width="565" height="644" alt="UVM Testbench Architecture" src="77" />
+  <img width="565" height="644" alt="axi_master_gld fsm" src="https://github.com/user-attachments/assets/e089f3b6-941b-492b-a032-1075fa48bc0f" />
 </p>
 
 ### Slave — FSM
@@ -114,8 +114,9 @@ Each block implements a compact FSM covering address, data, and response phases.
 
 Emphasizes **protocol correctness** and simple memory model behavior for comparison.
 
+Slave Golden Model FSM
 <p align="center">
-  <img width="565" height="644" alt="UVM Testbench Architecture" src="77" />
+  <img width="565" height="644" alt="axi_slave_gld fsm" src="https://github.com/user-attachments/assets/c34fe9a3-2c0e-4730-892f-8fdb1acca23f" />
 </p>
 
 ---
@@ -123,7 +124,7 @@ Emphasizes **protocol correctness** and simple memory model behavior for compari
 ## UVM Verification Architecture
 
 <p align="center">
-  <img width="565" height="644" alt="UVM Testbench Architecture" src="77" />
+  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/938bdd5b-8491-413e-8451-d38a674ff2c1" />
 </p>
 
 The **`AXI_if.sv`** interface defines signals and **modports** for master/slave **golden models** and for **UVM drivers/monitors**, enabling clean separation of concerns and preventing illegal multi‑driving.
