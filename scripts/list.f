@@ -1,12 +1,39 @@
+# ==========================================================
+# Include Directories for AXI Testbench Compilation
+# ==========================================================
+
+# --------------------------
+# Design & Assertions
+# --------------------------
 +incdir+./design
 +incdir+./design/AXI_Assertions
 +incdir+./design/AXI_design
 +incdir+./design/AXI_design/designer_rtl
 +incdir+./design/AXI_design/golden_models
+
+# --------------------------
+# Interfaces
+# --------------------------
 +incdir+./interface
+
+# --------------------------
+# UVM Transaction Objects
+# --------------------------
 +incdir+./objects
 +incdir+./objects/master_objects
++incdir+./objects/master_objects/address_alignment
++incdir+./objects/master_objects/backpressure
++incdir+./objects/master_objects/basic_ops
++incdir+./objects/master_objects/burst_patterns
++incdir+./objects/master_objects/data_strobe
++incdir+./objects/master_objects/error_and_reset
++incdir+./objects/master_objects/mixed_traffic
++incdir+./objects/master_objects/stress
 +incdir+./objects/slave_objects
+
+# --------------------------
+# Testbench Top-Level
+# --------------------------
 +incdir+./top
 +incdir+./top/test
 +incdir+./top/test/enviroment
@@ -21,24 +48,38 @@
 +incdir+./top/test/enviroment/slave_agent/monitor
 +incdir+./top/test/enviroment/slave_agent/sequencer
 
-# List of files for the AXI testbench
+# ==========================================================
+# File Compilation Order
+# ==========================================================
 
-# Interface files
+# --------------------------
+# Interfaces
+# --------------------------
 interface/shared_pkg.sv
 interface/AXI_if.sv
 
-# Design files
+# --------------------------
+# Design
+# --------------------------
 design/AXI_design/designer_rtl/design.sv
 design/AXI_design/golden_models/golden_models.sv
 
+# --------------------------
 # Assertions
+# --------------------------
 design/AXI_Assertions/AXI_assertions.sv
 
-# Enviroment
+# --------------------------
+# Environment
+# --------------------------
 top/test/enviroment/AXI_env_pkg.sv
 
-# Test file
+# --------------------------
+# Test
+# --------------------------
 top/test/test.sv
 
-# Top-level file
+# --------------------------
+# Top-Level
+# --------------------------
 top/top.sv

@@ -4,18 +4,59 @@ This folder contains **sequence items** and **sequences** for the AXI master and
 
 **Contents:**
 - `AXI_config.sv` – Shared UVM configuration object for master/slave agents (stores virtual interface handle, activity mode, etc.).
-- `master_objects/` – Master-side sequence items and **all master sequences** (reset, main randomized traffic, and directed sequences).
+- `master_objects/` – Master-side sequence items and **organized master sequences** split into subfolders by category.
 - `slave_objects/` – Slave-side sequence items and sequences.
 
 Objects define the **transaction-level representation** of AXI bus operations and how sequences drive them.
 
 ---
 
+## 📂 Master Sequences Folder Structure
+
+Master sequences are organized into multiple subfolders for easier navigation and maintenance:
+
+1. **`basic_ops/`** – Core and simple transaction patterns  
+   - `AXI_master_reset_sequence.svh`  
+   - `AXI_master_main_sequence.svh`  
+   - `AXI_master_single_read_seq.svh`  
+   - `AXI_master_single_write_seq.svh`  
+
+2. **`burst_patterns/`** – Specific AXI burst type tests  
+   - `AXI_master_incr_burst_seq.svh`  
+   - `AXI_master_fixed_burst_seq.svh`  
+   - `AXI_master_wrap_burst_seq.svh`  
+   - `AXI_master_max_len_burst_seq.svh`  
+
+3. **`address_alignment/`** – Address-related edge cases  
+   - `AXI_master_unaligned_access_seq.svh`  
+   - `AXI_master_boundary_cross_seq.svh`  
+
+4. **`data_strobe/`** – Write strobe and byte-enable behavior  
+   - `AXI_master_partial_write_strobe_seq.svh`  
+
+5. **`mixed_traffic/`** – Combined read/write ordering patterns  
+   - `AXI_master_interleaved_rw_seq.svh`  
+   - `AXI_master_read_after_write_seq.svh`  
+   - `AXI_master_write_after_read_seq.svh`  
+
+6. **`backpressure/`** – Channel stall behavior tests  
+   - `AXI_master_read_backpressure_seq.svh`  
+   - `AXI_master_write_backpressure_seq.svh`  
+
+7. **`error_and_reset/`** – Fault injection & recovery  
+   - `AXI_master_error_probe_seq.svh`  
+   - `AXI_master_reset_during_txn_seq.svh`  
+
+8. **`stress/`** – High-load randomized traffic  
+   - `AXI_master_random_stress_seq.svh`  
+
+---
+
 ## 📜 Master Sequences Overview
-The AXI master has a **comprehensive set of sequences** for different traffic scenarios and verification goals.
 
 ### **Core Sequences**
 - **`AXI_master_reset_sequence`** – Applies a reset sequence on the master interface. Ensures all channels return to their idle state, counters are cleared, and initial protocol conditions are met before traffic begins.
+
 - **`AXI_master_main_sequence`** – Generates general **randomized AXI read and write transactions** with varying lengths, addresses, and bursts for broad coverage of protocol features.
 
 ---
@@ -55,8 +96,6 @@ The AXI master has a **comprehensive set of sequences** for different traffic sc
 - **`AXI_master_reset_during_txn_seq`** – Applies a **reset while a transaction is active** to test graceful recovery and proper abort behavior.<br><br>
 
 - **`AXI_master_random_stress_seq`** – Generates **high-volume, mixed, and randomized traffic** (varied burst types, lengths, and addresses) to maximize coverage and stress the DUT.<br><br>
-
-
 
 ---
 

@@ -1,6 +1,15 @@
-*.js linguist-detectable=false
-*.html linguist-detectable=false
-*.css linguist-detectable=false
-*.f linguist-detectable=false
-*.bat linguist-detectable=false
-*.sh linguist-detectable=false
+# ==========================================================
+# GitHub Linguist Configuration
+# Purpose:
+#   Exclude non-source or auxiliary files from GitHub language
+#   statistics (repository language breakdown on repo page).
+#   This helps ensure the repo is categorized by actual design
+#   and verification source code, not scripts or assets.
+# ==========================================================
+
+*.js    linguist-detectable=false   # JavaScript assets (not core source)
+*.html  linguist-detectable=false   # HTML files (UI/Docs only)
+*.css   linguist-detectable=false   # Stylesheets (UI/Docs only)
+*.f     linguist-detectable=false   # File list scripts for simulation
+*.bat   linguist-detectable=false   # Windows batch scripts
+*.sh    linguist-detectable=false   # Shell scripts
