@@ -1,0 +1,202 @@
+Reading pref.tcl
+
+# 2021.1
+
+# do scripts/run.tcl
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 21:57:12 on Aug 12,2025
+# vlog -f scripts/list.f -mfcu "+cover" -covercells 
+# -- Compiling package shared_pkg
+# ** Note: (vlog-2286) interface/shared_pkg.sv(5): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package shared_pkg_sv_unit
+# -- Importing package shared_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package AXI_env_pkg
+# -- Importing package AXI_test_pkg
+# -- Compiling interface AXI_if
+# -- Compiling module AXI_master
+# -- Compiling module AXI_slave
+# -- Compiling module AXI_master_gld
+# -- Compiling module AXI_slave_gld
+# -- Compiling module AXI_master_sva
+# -- Compiling module AXI_slave_sva
+# -- Compiling package AXI_env_pkg
+# -- Compiling package AXI_test_pkg
+# -- Compiling module tb_top
+# 
+# Top level modules:
+# 	AXI_master_sva
+# 	AXI_slave_sva
+# 	tb_top
+# End time: 21:57:13 on Aug 12,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -sv_seed random -voptargs="+acc" work.tb_top -coverage -classdebug -uvmcontrol=all -fsmdebug 
+# Start time: 21:57:13 on Aug 12,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "AXI_slave_gld(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "AXI_master_gld(fast)".
+# //  Questa Sim-64
+# //  Version 2021.1 win64 Jan 19 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.AXI_if(fast)
+# Loading work.shared_pkg(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.AXI_env_pkg(fast)
+# Loading work.AXI_test_pkg(fast)
+# Loading work.shared_pkg_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.AXI_if(fast__2)
+# Loading work.AXI_master_gld(fast)
+# Loading work.AXI_slave_gld(fast)
+# Loading work.AXI_master(fast)
+# Loading work.AXI_slave(fast)
+# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
+# Sv_Seed = 1897004181
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(all)
+# UVM_INFO top/top.sv(55) @ 0: reporter [TB_TOP] No +UVM_TESTNAME specified. Defaulting to AXI_smoke_test.
+# UVM_INFO @ 0: reporter [RNTST] Running test AXI_smoke_test...
+# ====================================================================================
+# ====================================================================================
+# 
+#### Factory Configuration (*)
+# 
+#   No instance or type overrides are registered with this factory
+# 
+# All types registered with the factory: 78 total
+# (types without type names will not be printed)
+# 
+#   Type Name
+#   ---------
+#   AXI_burst_modes_test
+#   AXI_config
+#   AXI_coverage
+#   AXI_env
+#   AXI_flow_control_test
+#   AXI_master_agent
+#   AXI_master_boundary_cross_seq
+#   AXI_master_driver
+#   AXI_master_error_probe_seq
+#   AXI_master_fixed_burst_seq
+#   AXI_master_incr_burst_seq
+#   AXI_master_interleaved_rw_seq
+#   AXI_master_main_sequence
+#   AXI_master_max_len_burst_seq
+#   AXI_master_monitor
+#   AXI_master_partial_write_strobe_seq
+#   AXI_master_random_stress_seq
+#   AXI_master_read_after_write_seq
+#   AXI_master_read_backpressure_seq
+#   AXI_master_reset_during_txn_seq
+#   AXI_master_reset_sequence
+#   AXI_master_seq_item
+#   AXI_master_sequencer
+#   AXI_master_single_read_seq
+#   AXI_master_single_write_seq
+#   AXI_master_unaligned_access_seq
+#   AXI_master_wrap_burst_seq
+#   AXI_master_write_after_read_seq
+#   AXI_master_write_backpressure_seq
+#   AXI_robustness_test
+#   AXI_scoreboard
+#   AXI_slave_agent
+#   AXI_slave_driver
+#   AXI_slave_main_sequence
+#   AXI_slave_monitor
+#   AXI_slave_seq_item
+#   AXI_slave_sequencer
+#   AXI_smoke_test
+#   AXI_test_base
+#   questa_uvm_recorder
+# (*) Types with no associated type name will be printed as <unknown>
+# 
+####
+# 
+# ====================================================================================
+# ====================================================================================
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 0: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_reset
+# **************************************************************************
+# * Questa UVM Transaction Recording Turned ON.                            *
+# * recording_detail has been set.                                         *
+# *  To turn off, set 'recording_detail' to off:                           *
+# * uvm_config_db#(int)            ::set(null, "", "recording_detail", 0); *
+# * uvm_config_db#(uvm_bitstream_t)::set(null, "", "recording_detail", 0); *
+# **************************************************************************
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: POPMAN  Hostname: ALIADEL  ProcessID: 13844
+#           Attempting to use alternate WLF file "./wlft85bvz0".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft85bvz0
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 10: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_reset
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 10: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_main
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 10: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_main
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 10: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_single_read
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 1010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_single_read
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 1010: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_single_write
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 2010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_single_write
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 2010: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ./top/test/enviroment/scoreboard/AXI_scoreboard.svh(55) @ 2010: uvm_test_top.env.axi_sb [report_phase] At time 2010: Simulation Ends | Errors: 0, Correct: 0
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   14
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [RUN_ON_MASTER]     8
+# [TB_TOP]     1
+# [TEST_DONE]     1
+# [report_phase]     1
+# UVM_INFO top/top.sv(59) @ 2010: reporter [SEED] Current seed: 1897004181
+# ====================================================================================
+# ====================================================================================
+# ====================================================================================
+# ** Note: $stop    : top/top.sv(61)
+#    Time: 2010 ps  Iteration: 61  Instance: /tb_top
+# Break in Module tb_top at top/top.sv line 61
+# Stopped at top/top.sv line 61
+# ** Error: invalid command name "Functional"
+# Error in macro ./scripts/run.tcl line 50
+# invalid command name "Functional"
+#     while executing
+# "Functional Coverage Report"
+VSIM 2> 

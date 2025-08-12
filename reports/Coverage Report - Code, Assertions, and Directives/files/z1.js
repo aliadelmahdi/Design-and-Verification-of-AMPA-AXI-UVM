@@ -1,0 +1,2 @@
+var g_data = {"3":{"st":"inst","pa":0,"n":"/\\tb_top#master ","l":"Verilog","sn":3,"ln":31,"du":{"n":"work.AXI_master","s":1,"b":1},"bc":[{"n":"\\tb_top#master ","s":3,"z":1}],"loc":{"cp":0.00,"data":{"t":[64,0,1]}}},"1":{"st":"du","pa":0,"n":"work.AXI_master","l":"Verilog","sn":1,"ln":4,"one_inst":3,"loc":{"cp":0.00,"data":{"t":[64,0,1]}}}};
+processSummaryData(g_data);

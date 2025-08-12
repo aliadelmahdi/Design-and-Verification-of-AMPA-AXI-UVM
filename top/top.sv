@@ -8,6 +8,17 @@ import shared_pkg::*;     // Shared enums, typedefs, parameters
 module tb_top;
     bit aclk; // AXI clock signal
 
+    // ==========================
+    // Tests
+    // ==========================
+    string testname,test_n;
+    string test_list[$] = {
+        "AXI_smoke_test",
+        "AXI_burst_modes_test",
+        "AXI_flow_control_test",
+        "AXI_robustness_test"
+    };
+
     // ------------------------
     // Clock Generation
     // ------------------------
@@ -26,22 +37,24 @@ module tb_top;
     AXI_if         axi_if (aclk);       // AXI interface
     AXI_master_gld master_gld (axi_if); // Golden model for AXI master
     AXI_slave_gld  slave_gld (axi_if);  // Golden model for AXI slave
+    AXI_master master ();               // DUT for AXI master
+    AXI_slave  slave ();                // DUT for AXI slave
 
     // ------------------------
     // Simulation Control
     // ------------------------
     initial begin
+        testname = "AXI_smoke_test";
+
         uvm_top.set_report_verbosity_level(UVM_MEDIUM);    // Set default UVM verbosity
         uvm_top.finish_on_completion = `DISABLE_FINISH;    // Prevent automatic $finish
         uvm_config_db#(virtual AXI_if)::set(null, "*", "axi_if", axi_if); // Set interface globally
         
-        // ==========================
-        // Tests
-        // ==========================
-        run_test("AXI_smoke_test");
-        // run_test("AXI_burst_modes_test");
-        // run_test("AXI_flow_control_test");
-        // run_test("AXI_robustness_test");
+        if (!$value$plusargs("UVM_TESTNAME=%s", testname)) begin
+            test_n = testname;
+            `uvm_info("TB_TOP", "No +UVM_TESTNAME specified. Defaulting to AXI_smoke_test.", UVM_LOW)
+        end
+        run_test(test_n);
 
         `uvm_info("SEED", $sformatf("Current seed: %0d", $get_initial_random_seed()), UVM_LOW)
         repeat(3) `display_separator // Print separator lines

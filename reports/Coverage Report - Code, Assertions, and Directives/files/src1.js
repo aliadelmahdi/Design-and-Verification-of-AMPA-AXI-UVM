@@ -1,0 +1,2 @@
+var g_data = {"name":"./design/AXI_design/designer_rtl/AXI_master.sv","src":"`ifndef AXI_MASTER_SV\n`define AXI_MASTER_SV\n\nmodule AXI_master ();\n	int i;\nendmodule\n`endif // AXI_MASTER_SV","lang":"verilog"};
+processSrcData(g_data);

@@ -2,6 +2,6 @@
 `define AXI_MASTER_SV
 
 module AXI_master ();
-	
+	int i;
 endmodule
 `endif // AXI_MASTER_SV

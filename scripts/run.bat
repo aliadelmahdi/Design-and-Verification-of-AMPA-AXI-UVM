@@ -14,4 +14,5 @@ REM ==========================================================
 REM Run ModelSim/Questa in command-line mode (-c)
 REM -do "scripts/run.tcl" : Execute the main simulation script
 REM ==========================================================
-vsim -c -do "scripts/run.tcl"
+vsim -c -do "scripts/run.tcl" | tee scripts/sim.log
+@REM vsim -c -do "scripts/run_all.tcl" | tee scripts/sim.log

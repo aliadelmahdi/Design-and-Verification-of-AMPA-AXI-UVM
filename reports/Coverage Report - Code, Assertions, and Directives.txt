@@ -1,0 +1,28 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /\tb_top#master 
+=== Design Unit: work.AXI_master
+=================================================================================
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         64         0        64     0.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\tb_top#master  --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                           i[0-31]           0           0                                0.00 
+
+Total Node Count     =         32 
+Toggled Node Count   =          0 
+Untoggled Node Count =         32 
+
+Toggle Coverage      =       0.00% (0 of 64 bins)
+
+
+Total Coverage By Instance (filtered view): 0.00%
+

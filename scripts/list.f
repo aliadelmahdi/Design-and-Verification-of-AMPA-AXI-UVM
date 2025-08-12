@@ -53,33 +53,33 @@
 # ==========================================================
 
 # --------------------------
-# Interfaces
+# 1- Interfaces
 # --------------------------
 interface/shared_pkg.sv
 interface/AXI_if.sv
 
 # --------------------------
-# Design
+# 2- Design
 # --------------------------
 design/AXI_design/designer_rtl/design.sv
 design/AXI_design/golden_models/golden_models.sv
 
 # --------------------------
-# Assertions
+# 3- Assertions
 # --------------------------
 design/AXI_Assertions/AXI_assertions.sv
 
 # --------------------------
-# Environment
+# 4- Environment
 # --------------------------
 top/test/enviroment/AXI_env_pkg.sv
 
 # --------------------------
-# Test
+# 5- Test
 # --------------------------
 top/test/test.sv
 
 # --------------------------
-# Top-Level
+# 6- Top-Level
 # --------------------------
 top/top.sv
