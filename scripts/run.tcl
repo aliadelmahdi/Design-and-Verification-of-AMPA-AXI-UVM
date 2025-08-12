@@ -47,7 +47,6 @@ run -all
 # Functional Coverage Reports
 # ==========================================================
 # ******************************************* #
-Functional Coverage Report
 coverage report -detail -cvg -directive \
     -output "reports/Functional Coverage Report.txt" \
     /AXI_env_pkg/AXI_coverage/*

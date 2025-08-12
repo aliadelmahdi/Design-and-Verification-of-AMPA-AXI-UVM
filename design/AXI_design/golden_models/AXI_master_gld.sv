@@ -23,8 +23,8 @@ module AXI_master_gld (AXI_if.master_gld m_axi);
     // -------------------------
     // Internal registers
     // -------------------------
-    addr_t addr  = 32'h4;          // Base transaction address
-    data_t data  = 32'hdeadbeef;   // Initial write data
+    // addr_t addr  = 32'h4;          // Base transaction address
+    // data_t data  = 32'hdeadbeef;   // Initial write data
     len_t  len_cnt;                // Burst beat counter
     data_t rdata[0:7];              // Local buffer for read data
     logic [2:0] rdata_cnt;          // Read data beat counter
@@ -34,38 +34,38 @@ module AXI_master_gld (AXI_if.master_gld m_axi);
     // -------------------------
     // Read Address Channel
     // -------------------------
-    assign m_axi.araddr  = (state == RADDR) ? addr : 32'h0;
-    assign m_axi.arvalid = (state == RADDR);
-    assign m_axi.arlen   = LEN - 1;
-    assign m_axi.arsize  = SIZE_4_BYTE;
-    assign m_axi.arburst = BURST_INCR;
+    assign m_axi.araddr_ref  = (state == RADDR) ? m_axi.addr : 32'h0;
+    assign m_axi.arvalid_ref = (state == RADDR);
+    // assign m_axi.arlen   = LEN - 1;
+    // assign m_axi.arsize  = SIZE_4_BYTE;
+    // assign m_axi.arburst = BURST_INCR;
 
     // -------------------------
     // Read Data Channel
     // -------------------------
-    assign m_axi.rready = (state == RDATA);
+    assign m_axi.rready_ref = (state == RDATA);
 
     // -------------------------
     // Write Address Channel
     // -------------------------
-    assign m_axi.awaddr  = (state == WADDR) ? addr : 32'h0;
-    assign m_axi.awvalid = (state == WADDR);
-    assign m_axi.awlen   = LEN - 1;
-    assign m_axi.awsize  = SIZE_4_BYTE;
-    assign m_axi.awburst = BURST_INCR;
+    assign m_axi.awaddr_ref  = (state == WADDR) ? m_axi.addr : 32'h0;
+    assign m_axi.awvalid_ref = (state == WADDR);
+    // assign m_axi.awlen   = LEN - 1;
+    // assign m_axi.awsize  = SIZE_4_BYTE;
+    // assign m_axi.awburst = BURST_INCR;
 
     // -------------------------
     // Write Data Channel
     // -------------------------
-    assign m_axi.wdata  = (state == WDATA) ? data + len_cnt : 32'h0;
-    assign m_axi.wstrb  = 4'b1111;
-    assign m_axi.wvalid = (state == WDATA);
-    assign m_axi.wlast  = (state == WDATA && len_cnt == LEN);
+    assign m_axi.wdata_ref  = (state == WDATA) ? m_axi.data + len_cnt : 32'h0;
+    // assign m_axi.wstrb  = 4'b1111;
+    assign m_axi.wvalid_ref = (state == WDATA);
+    assign m_axi.wlast_ref  = (state == WDATA && len_cnt == LEN);
 
     // -------------------------
     // Write Response Channel
     // -------------------------
-    assign m_axi.bready = (state == WRESP);
+    assign m_axi.bready_ref = (state == WRESP);
 
     // -------------------------
     // Data Capture & Counters
@@ -79,12 +79,12 @@ module AXI_master_gld (AXI_if.master_gld m_axi);
             len_cnt   <= 0;
         end else begin
             // Store read data into buffer
-            if (state == RDATA && m_axi.rvalid && m_axi.rready) begin
-                rdata[addr + rdata_cnt] <= m_axi.rdata;
+            if (state == RDATA && m_axi.rvalid_ref && m_axi.rready_ref) begin
+                rdata[m_axi.addr + rdata_cnt] <= m_axi.rdata_ref;
                 rdata_cnt <= rdata_cnt + 1;
             end
             // Increment write data counter
-            if (state == WDATA && m_axi.wvalid && m_axi.wready)
+            if (state == WDATA && m_axi.wvalid_ref && m_axi.wready_ref)
                 len_cnt <= len_cnt + 1;
         end
     end
@@ -109,11 +109,11 @@ module AXI_master_gld (AXI_if.master_gld m_axi);
         case (state)
             IDLE  : next_state = (start_read_delay) ? RADDR :
                                  (start_write_delay) ? WADDR : IDLE;
-            RADDR : if (m_axi.arvalid && m_axi.arready) next_state = RDATA;
-            RDATA : if (m_axi.rvalid && m_axi.rready && m_axi.rlast) next_state = IDLE;
-            WADDR : if (m_axi.awvalid && m_axi.awready) next_state = WDATA;
-            WDATA : if (m_axi.wvalid && m_axi.wready && m_axi.wlast) next_state = WRESP;
-            WRESP : if (m_axi.bvalid && m_axi.bready) next_state = IDLE;
+            RADDR : if (m_axi.arvalid_ref && m_axi.arready_ref) next_state = RDATA;
+            RDATA : if (m_axi.rvalid_ref && m_axi.rready_ref && m_axi.rlast_ref) next_state = IDLE;
+            WADDR : if (m_axi.awvalid_ref && m_axi.awready_ref) next_state = WDATA;
+            WDATA : if (m_axi.wvalid_ref && m_axi.wready_ref && m_axi.wlast_ref) next_state = WRESP;
+            WRESP : if (m_axi.bvalid_ref && m_axi.bready_ref) next_state = IDLE;
             default: next_state = IDLE;
         endcase
     end

@@ -33,6 +33,9 @@
 AXI_Assertions/AXI_assertions.sv
 AXI_Assertions/AXI_master_sva.sv
 AXI_Assertions/AXI_slave_sva.sv
+AXI_ar.svh
+AXI_aw.svh
+AXI_b.svh
 AXI_config.svh
 AXI_defines.svh
 AXI_design/designer_rtl/AXI_master.sv
@@ -41,7 +44,11 @@ AXI_design/designer_rtl/design.sv
 AXI_design/golden_models/AXI_master_gld.sv
 AXI_design/golden_models/AXI_slave_gld.sv
 AXI_design/golden_models/golden_models.sv
+AXI_globals.svh
 AXI_if.sv
+AXI_modports.svh
+AXI_r.svh
+AXI_w.svh
 master_objects/AXI_master_seq_item.svh
 master_objects/AXI_master_sequences.svh
 master_objects/address_alignment/AXI_master_boundary_cross_seq.svh
