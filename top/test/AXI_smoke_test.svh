@@ -13,7 +13,7 @@ class AXI_smoke_test extends AXI_test_base;
   // Constructor
   function new(string name="AXI_smoke_test", uvm_component parent=null);
     super.new(name, parent);
-  endfunction
+  endfunction : new
 
   // Build phase: create sequence objects
   function void build_phase(uvm_phase phase);
@@ -21,14 +21,14 @@ class AXI_smoke_test extends AXI_test_base;
     AXI_master_main         = AXI_master_main_sequence::type_id::create("AXI_master_main");
     AXI_master_single_read  = AXI_master_single_read_seq::type_id::create("AXI_master_single_read");
     AXI_master_single_write = AXI_master_single_write_seq::type_id::create("AXI_master_single_write");
-  endfunction
+  endfunction : build_phase
 
   // Main test body: run basic sanity sequences
   virtual task run_scenarios();
     run_on_master(AXI_master_main);
     run_on_master(AXI_master_single_read);
     run_on_master(AXI_master_single_write);
-  endtask
-endclass
+  endtask : run_scenarios
+endclass : AXI_smoke_test
 
 `endif // AXI_SMOKE_TEST_SVH

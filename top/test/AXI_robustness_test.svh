@@ -13,7 +13,7 @@ class AXI_robustness_test extends AXI_test_base;
   // Constructor
   function new(string name="AXI_robustness_test", uvm_component parent=null);
     super.new(name, parent);
-  endfunction
+  endfunction : new
 
   // Main test body: create and run all robustness scenarios on master
   virtual task run_scenarios();
@@ -26,7 +26,8 @@ class AXI_robustness_test extends AXI_test_base;
     run_on_master(AXI_master_error_probe);
     run_on_master(AXI_master_reset_during_txn);
     run_on_master(AXI_master_random_stress);
-  endtask
-endclass
+  endtask : run_scenarios
+  
+endclass : AXI_robustness_test
 
 `endif // AXI_ROBUSTNESS_TEST_SVH

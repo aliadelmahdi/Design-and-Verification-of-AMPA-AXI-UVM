@@ -16,7 +16,7 @@ class AXI_flow_control_test extends AXI_test_base;
   // Constructor
   function new(string name="AXI_flow_control_test", uvm_component parent=null);
     super.new(name, parent);
-  endfunction
+  endfunction : new
 
   // Main test body: create and run all flow control sequences on master
   virtual task run_scenarios();
@@ -35,7 +35,8 @@ class AXI_flow_control_test extends AXI_test_base;
     run_on_master(AXI_master_write_backpressure);
     run_on_master(AXI_master_read_after_write);
     run_on_master(AXI_master_write_after_read);
-  endtask
-endclass
+  endtask : run_scenarios
+  
+endclass : AXI_flow_control_test
 
 `endif // AXI_FLOW_CONTROL_TEST_SVH

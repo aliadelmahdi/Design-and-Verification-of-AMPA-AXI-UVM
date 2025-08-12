@@ -16,7 +16,7 @@ class AXI_burst_modes_test extends AXI_test_base;
   // Constructor
   function new(string name="AXI_burst_modes_test", uvm_component parent=null);
     super.new(name, parent);
-  endfunction
+  endfunction : new
   
   // Main test body: create and run all burst sequences on master
   virtual task run_scenarios();
@@ -36,7 +36,8 @@ class AXI_burst_modes_test extends AXI_test_base;
     run_on_master(AXI_master_max_len_burst);
     run_on_master(AXI_master_unaligned_access);
     run_on_master(AXI_master_boundary_cross);
-  endtask
-endclass
+  endtask : run_scenarios
+  
+endclass : AXI_burst_modes_test
 
 `endif // AXI_BURST_MODES_TEST_SVH

@@ -67,6 +67,10 @@ shared_pkg.sv
 slave_objects/AXI_slave_main_sequence.svh
 slave_objects/AXI_slave_seq_item.svh
 slave_objects/AXI_slave_sequences.svh
+test/AXI_burst_modes_test.svh
+test/AXI_flow_control_test.svh
+test/AXI_robustness_test.svh
+test/AXI_smoke_test.svh
 test/AXI_test_base.svh
 test/enviroment/AXI_env.svh
 test/enviroment/AXI_env_pkg.sv

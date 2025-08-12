@@ -38,10 +38,10 @@ module tb_top;
         // ==========================
         // Tests
         // ==========================
-        // run_test("AXI_smoke_test");
+        run_test("AXI_smoke_test");
         // run_test("AXI_burst_modes_test");
         // run_test("AXI_flow_control_test");
-        run_test("AXI_robustness_test");
+        // run_test("AXI_robustness_test");
 
         `uvm_info("SEED", $sformatf("Current seed: %0d", $get_initial_random_seed()), UVM_LOW)
         repeat(3) `display_separator // Print separator lines

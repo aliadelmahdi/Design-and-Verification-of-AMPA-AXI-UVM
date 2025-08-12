@@ -16,7 +16,7 @@ class AXI_test_base extends uvm_test;
   virtual AXI_if axi_if; 
 
   // Hook for derived tests to implement their own scenarios
-  virtual task run_scenarios(); endtask
+  virtual task run_scenarios(); endtask : run_scenarios
 
   // Helper to run a sequence on the master sequencer
   virtual task run_on_master(uvm_sequence_base seq);
@@ -31,12 +31,12 @@ class AXI_test_base extends uvm_test;
     seq.start(axi_env.axi_master_agent.axi_master_seqr);
 
     `uvm_info("RUN_ON_MASTER", $sformatf("<<< Finished sequence: %0s", seq.get_name()), UVM_LOW)
-  endtask
+  endtask : run_on_master
 
   // Constructor
   function new(string name="AXI_test_base", uvm_component parent=null);
     super.new(name, parent);
-  endfunction
+  endfunction : new
 
   // Build phase: create environment, configs, and reset sequence
   function void build_phase(uvm_phase phase);
@@ -67,7 +67,10 @@ class AXI_test_base extends uvm_test;
 
     // Create default master reset sequence
     AXI_master_reset = AXI_master_reset_sequence::type_id::create("AXI_master_reset");
-  endfunction
+    repeat(2) `display_separator // Print separator lines
+    factory.print();
+    repeat(2) `display_separator // Print separator lines
+  endfunction : build_phase
 
   // Run phase: performs reset and then executes test scenarios
   task run_phase(uvm_phase phase);
@@ -80,7 +83,7 @@ class AXI_test_base extends uvm_test;
     run_scenarios();
 
     phase.drop_objection(this);
-  endtask
-endclass
+  endtask : run_phase
+endclass : AXI_test_base
 
 `endif // AXI_TEST_BASE_SVH
