@@ -1,0 +1,2 @@
+var g_data = {"15":{"pr":"/AXI_env_pkg","ty":2,"dui":4,"dun":"work.AXI_env_pkg","cvgs":[{"h":["\\/AXI_env_pkg::AXI_coverage::axi_cov_grp ",2,1,27,16],"cov":[1155,26,44.76],"opts":{"goal":"100"}},{"h":["/AXI_env_pkg/AXI_coverage/axi_cov_grp",1,1,16],"cov":[1155,26,44.76],"opts":{"goal":"100"}}]}};
+processCovergroupsData(g_data);

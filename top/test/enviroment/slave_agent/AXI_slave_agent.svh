@@ -37,7 +37,7 @@ class AXI_slave_agent extends uvm_agent;
             axi_slave_seqr = AXI_slave_sequencer::type_id::create("axi_slave_seqr", this);
         end
 
-        // Always create monitor
+        // create monitor
         axi_slave_mon = AXI_slave_monitor::type_id::create("axi_slave_mon", this);
 
         // Create agent-level analysis port

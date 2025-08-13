@@ -17,9 +17,11 @@ class AXI_master_wrap_burst_seq extends AXI_master_main_sequence;
         repeat(`TEST_ITER_SMALL) begin
             configure_seq_item();
             start_item(seq_item);
-            // TODO: constrain burst type = WRAP
-            // assert(seq_item.randomize() with { burst == BURST_WRAP; is_len_wrap_aligned; }) else ...
-            assert(seq_item.randomize()) else $error("Master Randomization Failed");
+            assert(seq_item.randomize() with {
+                 awburst     == BURST_WRAP;
+                 arburst     == BURST_WRAP;
+            }
+            ) else $error("Master Randomization Failed");
             finish_item(seq_item);
         end
     endtask : body

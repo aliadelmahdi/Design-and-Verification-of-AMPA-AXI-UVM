@@ -13,9 +13,8 @@
   // Write Data Channel (W) - REF
   // ---------------------------
   data_t  wdata_ref;   // Write data from master to slave (golden model)
-  strb_t  wstrb_ref;   // Write strobes: indicates which byte lanes are valid (golden model)
-  logic   wvalid_ref;  // Indicates that the write data is valid (golden model)
-  logic   wready_ref;  // Indicates that the slave is ready to accept the write data (golden model)
-  logic   wlast_ref;   // Indicates the last transfer in a write burst (golden model)
+  bit     wvalid_ref;  // Indicates that the write data is valid (golden model)
+  bit     wready_ref;  // Indicates that the slave is ready to accept the write data (golden model)
+  bit     wlast_ref;   // Indicates the last transfer in a write burst (golden model)
   
 `endif // AXI_W_SVH

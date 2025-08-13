@@ -33,9 +33,49 @@ class AXI_master_driver extends uvm_driver #(AXI_master_seq_item);
             // Get transaction from sequencer
             seq_item_port.get_next_item(stimulus_seq_item);
 
-            // TODO: Drive AXI signals here based on stimulus_seq_item fields
-            @(negedge axi_if.aclk) // Wait for clock edge
+            // ---------------------------
+            // Global control
+            // ---------------------------
+            axi_if.areset_n    = stimulus_seq_item.areset_n;
+            axi_if.start_read  = stimulus_seq_item.start_read;
+            axi_if.start_write = stimulus_seq_item.start_write;
+            axi_if.addr        = stimulus_seq_item.addr;
+            axi_if.data        = stimulus_seq_item.data;
+            axi_if.arlen       = stimulus_seq_item.arlen;
+            axi_if.arsize      = stimulus_seq_item.arsize;
+            axi_if.arburst     = stimulus_seq_item.arburst;
+            axi_if.awburst     = stimulus_seq_item.awburst;
+            axi_if.awsize      = stimulus_seq_item.awsize;
+            axi_if.awlen       = stimulus_seq_item.awlen;
+            axi_if.wstrb       = stimulus_seq_item.wstrb;
 
+            // ---------------------------
+            // DUT Master Inputs
+            // ---------------------------
+            axi_if.arready     = stimulus_seq_item.arready;
+            axi_if.rdata       = stimulus_seq_item.rdata;
+            axi_if.rresp       = stimulus_seq_item.rresp;
+            axi_if.rvalid      = stimulus_seq_item.rvalid;
+            axi_if.rlast       = stimulus_seq_item.rlast;
+            axi_if.awready     = stimulus_seq_item.awready;
+            axi_if.wready      = stimulus_seq_item.wready;
+            axi_if.bresp       = stimulus_seq_item.bresp;
+            axi_if.bvalid      = stimulus_seq_item.bvalid;
+
+            // ---------------------------
+            // REF Master Inputs
+            // ---------------------------
+            axi_if.arready_ref = stimulus_seq_item.arready_ref;
+            axi_if.rdata_ref   = stimulus_seq_item.rdata_ref;
+            axi_if.rresp_ref   = stimulus_seq_item.rresp_ref;
+            axi_if.rvalid_ref  = stimulus_seq_item.rvalid_ref;
+            axi_if.rlast_ref   = stimulus_seq_item.rlast_ref;
+            axi_if.awready_ref = stimulus_seq_item.awready_ref;
+            axi_if.wready_ref  = stimulus_seq_item.wready_ref;
+            axi_if.bresp_ref   = stimulus_seq_item.bresp_ref;
+            axi_if.bvalid_ref  = stimulus_seq_item.bvalid_ref;
+
+            @(negedge axi_if.aclk) // Wait for clock edge
             // Indicate to sequencer that driving is done
             seq_item_port.item_done();
 

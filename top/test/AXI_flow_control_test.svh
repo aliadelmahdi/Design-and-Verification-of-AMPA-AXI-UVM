@@ -18,16 +18,19 @@ class AXI_flow_control_test extends AXI_test_base;
     super.new(name, parent);
   endfunction : new
 
-  // Main test body: create and run all flow control sequences on master
-  virtual task run_scenarios();
-    // Create sequence objects
+  // Build phase: create sequence objects
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
     AXI_master_partial_write_strobe = AXI_master_partial_write_strobe_seq::type_id::create("AXI_master_partial_write_strobe");
     AXI_master_interleaved_rw       = AXI_master_interleaved_rw_seq::type_id::create("AXI_master_interleaved_rw");
     AXI_master_read_backpressure    = AXI_master_read_backpressure_seq::type_id::create("AXI_master_read_backpressure");
     AXI_master_write_backpressure   = AXI_master_write_backpressure_seq::type_id::create("AXI_master_write_backpressure");
     AXI_master_read_after_write     = AXI_master_read_after_write_seq::type_id::create("AXI_master_read_after_write");
     AXI_master_write_after_read     = AXI_master_write_after_read_seq::type_id::create("AXI_master_write_after_read");
+  endfunction : build_phase
 
+  // Main test body: create and run all flow control sequences on master
+  virtual task run_scenarios();
     // Execute sequences to validate master behavior under various flow control conditions
     run_on_master(AXI_master_partial_write_strobe);
     run_on_master(AXI_master_interleaved_rw);

@@ -33,8 +33,50 @@ class AXI_slave_driver extends uvm_driver #(AXI_slave_seq_item);
             // Get transaction from sequencer
             seq_item_port.get_next_item(stimulus_seq_item);
 
-            // TODO: Drive slave response signals based on stimulus_seq_item
-            // Example: axi_if.rdata = stimulus_seq_item.rdata;
+            // ---------------------------
+            // Global control
+            // ---------------------------
+            axi_if.areset_n  = stimulus_seq_item.areset_n;
+
+            // ---------------------------
+            // DUT Slave Inputs (from Master)
+            // ---------------------------
+            axi_if.araddr    = stimulus_seq_item.araddr;
+            axi_if.arvalid   = stimulus_seq_item.arvalid;
+            axi_if.arlen     = stimulus_seq_item.arlen;
+            axi_if.arsize    = stimulus_seq_item.arsize;
+            axi_if.arburst   = stimulus_seq_item.arburst;
+
+            axi_if.awaddr    = stimulus_seq_item.awaddr;
+            axi_if.awvalid   = stimulus_seq_item.awvalid;
+            axi_if.awlen     = stimulus_seq_item.awlen;
+            axi_if.awsize    = stimulus_seq_item.awsize;
+            axi_if.awburst   = stimulus_seq_item.awburst;
+
+            axi_if.wdata     = stimulus_seq_item.wdata;
+            axi_if.wstrb     = stimulus_seq_item.wstrb;
+            axi_if.wvalid    = stimulus_seq_item.wvalid;
+            axi_if.wlast     = stimulus_seq_item.wlast;
+
+            axi_if.rready    = stimulus_seq_item.rready;
+            axi_if.bready    = stimulus_seq_item.bready;
+
+            // ---------------------------
+            // REF Slave Inputs (from REF Master)
+            // ---------------------------
+            axi_if.araddr_ref    = stimulus_seq_item.araddr_ref;
+            axi_if.arvalid_ref   = stimulus_seq_item.arvalid_ref;
+
+            axi_if.awaddr_ref    = stimulus_seq_item.awaddr_ref;
+            axi_if.awvalid_ref   = stimulus_seq_item.awvalid_ref;
+
+            axi_if.wdata_ref     = stimulus_seq_item.wdata_ref;
+            axi_if.wvalid_ref    = stimulus_seq_item.wvalid_ref;
+            axi_if.wlast_ref     = stimulus_seq_item.wlast_ref;
+
+            axi_if.rready_ref    = stimulus_seq_item.rready_ref;
+            axi_if.bready_ref    = stimulus_seq_item.bready_ref;
+
 
             @(negedge axi_if.aclk) // Sync with clock
 

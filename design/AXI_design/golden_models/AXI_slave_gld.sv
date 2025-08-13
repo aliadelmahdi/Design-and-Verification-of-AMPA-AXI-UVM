@@ -72,15 +72,15 @@ module AXI_slave_gld (AXI_if.slave_gld s_axi);
             case (state)
                 RADDR: begin
                     addr  <= s_axi.araddr_ref;
-                    len   <= s_axi.arlen_ref;
-                    size  <= s_axi.arsize_ref;
-                    burst <= s_axi.arburst_ref;
+                    len   <= s_axi.arlen;
+                    size  <= s_axi.arsize;
+                    burst <= s_axi.arburst;
                 end
                 WADDR: begin
                     addr  <= s_axi.awaddr_ref;
-                    len   <= s_axi.awlen_ref;
-                    size  <= s_axi.awsize_ref;
-                    burst <= s_axi.awburst_ref;
+                    len   <= s_axi.awlen;
+                    size  <= s_axi.awsize;
+                    burst <= s_axi.awburst;
                 end
             endcase
         end

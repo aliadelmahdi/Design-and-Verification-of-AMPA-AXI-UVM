@@ -6,7 +6,7 @@ Reading pref.tcl
 # ** Warning: (vlib-34) Library already exists at "work".
 # Errors: 0, Warnings: 1
 # QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 23:50:04 on Aug 12,2025
+# Start time: 04:33:02 on Aug 13,2025
 # vlog -f scripts/list.f -mfcu "+cover" -covercells 
 # -- Compiling package shared_pkg
 # ** Note: (vlog-2286) interface/shared_pkg.sv(5): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
@@ -30,12 +30,13 @@ Reading pref.tcl
 # 	AXI_master_sva
 # 	AXI_slave_sva
 # 	tb_top
-# End time: 23:50:05 on Aug 12,2025, Elapsed time: 0:00:01
+# End time: 04:33:04 on Aug 13,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # vsim -sv_seed random -voptargs="+acc" work.tb_top -coverage -classdebug -uvmcontrol=all -fsmdebug 
-# Start time: 23:50:05 on Aug 12,2025
+# Start time: 04:33:04 on Aug 13,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Note: (vopt-143) Recognized 1 FSM in module "AXI_slave_gld(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "AXI_master_gld(fast)".
 # //  Questa Sim-64
 # //  Version 2021.1 win64 Jan 19 2021
 # //
@@ -65,7 +66,7 @@ Reading pref.tcl
 # Loading work.AXI_master(fast)
 # Loading work.AXI_slave(fast)
 # Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
-# Sv_Seed = 1714762261
+# Sv_Seed = 1950165245
 # ----------------------------------------------------------------
 # UVM-1.1d
 # (C) 2007-2013 Mentor Graphics Corporation
@@ -88,8 +89,8 @@ Reading pref.tcl
 # 
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(all)
-# UVM_INFO top/top.sv(55) @ 0: reporter [TB_TOP] No +UVM_TESTNAME specified. Defaulting to AXI_smoke_test.
-# UVM_INFO @ 0: reporter [RNTST] Running test AXI_smoke_test...
+# UVM_INFO top/top.sv(58) @ 0: reporter [TB_TOP] No +UVM_TESTNAME specified. Defaulting to testname.
+# UVM_INFO @ 0: reporter [RNTST] Running test AXI_burst_modes_test...
 # ====================================================================================
 # ====================================================================================
 # 
@@ -156,57 +157,57 @@ Reading pref.tcl
 # * uvm_config_db#(int)            ::set(null, "", "recording_detail", 0); *
 # * uvm_config_db#(uvm_bitstream_t)::set(null, "", "recording_detail", 0); *
 # **************************************************************************
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: POPMAN  Hostname: ALIADEL  ProcessID: 13844
-#           Attempting to use alternate WLF file "./wlft0ksrh7".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft0ksrh7
 # UVM_INFO ./top/test/AXI_test_base.svh(33) @ 10: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_reset
-# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 10: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_main
-# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 10: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_main
-# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 10: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_single_read
-# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 1010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_single_read
-# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 1010: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_single_write
-# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 2010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_single_write
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 2010: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO ./top/test/enviroment/scoreboard/AXI_scoreboard.svh(55) @ 2010: uvm_test_top.env.axi_sb [report_phase] At time 2010: Simulation Ends | Errors: 0, Correct: 0
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 10: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_incr_burst
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 1010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_incr_burst
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 1010: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_fixed_burst
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 2010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_fixed_burst
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 2010: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_wrap_burst
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 3010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_wrap_burst
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 3010: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_max_len_burst
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 4010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_max_len_burst
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 4010: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_unaligned_access
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 5010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_unaligned_access
+# UVM_INFO ./top/test/AXI_test_base.svh(28) @ 5010: uvm_test_top [RUN_ON_MASTER] >>> Starting sequence: AXI_master_boundary_cross
+# UVM_INFO ./top/test/AXI_test_base.svh(33) @ 6010: uvm_test_top [RUN_ON_MASTER] <<< Finished sequence: AXI_master_boundary_cross
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 6010: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ./top/test/enviroment/scoreboard/AXI_scoreboard.svh(55) @ 6010: uvm_test_top.env.axi_sb [report_phase] At time 6010: Simulation Ends | Errors: 0, Correct: 601
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   14
+# UVM_INFO :   20
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
 # [Questa UVM]     2
 # [RNTST]     1
-# [RUN_ON_MASTER]     8
+# [RUN_ON_MASTER]    14
 # [TB_TOP]     1
 # [TEST_DONE]     1
 # [report_phase]     1
-# UVM_INFO top/top.sv(59) @ 2010: reporter [SEED] Current seed: 1714762261
+# UVM_INFO top/top.sv(62) @ 6010: reporter [SEED] Current seed: 1950165245
 # ====================================================================================
 # ====================================================================================
 # ====================================================================================
-# ** Note: $stop    : top/top.sv(61)
-#    Time: 2010 ps  Iteration: 61  Instance: /tb_top
-# Break in Module tb_top at top/top.sv line 61
-# Stopped at top/top.sv line 61
-# ** Warning: (vsim-19042) No matching item found for '/AXI_env_pkg/AXI_coverage/*'.
-# ** Note: (vsim-17388) No matching coverage data found.
-# ** Warning: (vsim-19042) No matching item found for '/AXI_env_pkg/AXI_coverage/*'.
+# ** Note: $stop    : top/top.sv(64)
+#    Time: 6010 ps  Iteration: 61  Instance: /tb_top
+# Break in Module tb_top at top/top.sv line 64
+# Stopped at top/top.sv line 64
+# 
+# 
 # Saving coverage database on exit...
-# End time: 23:50:13 on Aug 12,2025, Elapsed time: 0:00:08
-# Errors: 0, Warnings: 4
-# QuestaSim-64 vcover 2021.1 Coverage Utility 2021.01 Jan 19 2021
-# Start time: 23:50:13 on Aug 12,2025
-# vcover report top.ucdb -details -annotate -all -output reports/Coverage Report - Code, Assertions, and Directives.txt 
-# End time: 23:50:13 on Aug 12,2025, Elapsed time: 0:00:00
+# End time: 04:33:12 on Aug 13,2025, Elapsed time: 0:00:08
 # Errors: 0, Warnings: 0
 # QuestaSim-64 vcover 2021.1 Coverage Utility 2021.01 Jan 19 2021
-# Start time: 23:50:13 on Aug 12,2025
+# Start time: 04:33:12 on Aug 13,2025
+# vcover report top.ucdb -details -annotate -all -output reports/Coverage Report - Code, Assertions, and Directives.txt 
+# End time: 04:33:12 on Aug 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcover 2021.1 Coverage Utility 2021.01 Jan 19 2021
+# Start time: 04:33:12 on Aug 13,2025
 # vcover report top.ucdb -details -annotate -html -output reports/Coverage Report - Code, Assertions, and Directives 
-# End time: 23:50:13 on Aug 12,2025, Elapsed time: 0:00:00
+# End time: 04:33:12 on Aug 13,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 QuestaSim> 

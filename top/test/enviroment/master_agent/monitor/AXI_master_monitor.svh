@@ -35,8 +35,99 @@ class AXI_master_monitor extends uvm_monitor;
             // Wait for a clock edge
             @(negedge axi_if.aclk);
 
-            // TODO: Assign AXI signal values to master_response_seq_item fields here
-            // Example: master_response_seq_item.awaddr = axi_if.awaddr;
+            // ---------------------------
+            // Global control
+            // ---------------------------
+            master_response_seq_item.areset_n           = axi_if.areset_n;
+            master_response_seq_item.start_read         = axi_if.start_read;
+            master_response_seq_item.start_write        = axi_if.start_write;
+            master_response_seq_item.addr               = axi_if.addr;
+            master_response_seq_item.data               = axi_if.data;
+            master_response_seq_item.m_fsm_state        = axi_if.m_fsm_state;
+
+            // ---------------------------
+            // DUT Read Address Channel (AR)
+            // ---------------------------
+            master_response_seq_item.araddr      = axi_if.araddr;
+            master_response_seq_item.arvalid     = axi_if.arvalid;
+            master_response_seq_item.arlen       = axi_if.arlen;
+            master_response_seq_item.arsize      = axi_if.arsize;
+            master_response_seq_item.arburst     = axi_if.arburst;
+            master_response_seq_item.arready     = axi_if.arready;
+
+            // ---------------------------
+            // DUT Read Data Channel (R)
+            // ---------------------------
+            master_response_seq_item.rdata       = axi_if.rdata;
+            master_response_seq_item.rresp       = axi_if.rresp;
+            master_response_seq_item.rvalid      = axi_if.rvalid;
+            master_response_seq_item.rready      = axi_if.rready;
+            master_response_seq_item.rlast       = axi_if.rlast;
+
+            // ---------------------------
+            // DUT Write Address Channel (AW)
+            // ---------------------------
+            master_response_seq_item.awaddr      = axi_if.awaddr;
+            master_response_seq_item.awvalid     = axi_if.awvalid;
+            master_response_seq_item.awlen       = axi_if.awlen;
+            master_response_seq_item.awsize      = axi_if.awsize;
+            master_response_seq_item.awburst     = axi_if.awburst;
+            master_response_seq_item.awready     = axi_if.awready;
+
+            // ---------------------------
+            // DUT Write Data Channel (W)
+            // ---------------------------
+            master_response_seq_item.wdata       = axi_if.wdata;
+            master_response_seq_item.wstrb       = axi_if.wstrb;
+            master_response_seq_item.wvalid      = axi_if.wvalid;
+            master_response_seq_item.wready      = axi_if.wready;
+            master_response_seq_item.wlast       = axi_if.wlast;
+
+            // ---------------------------
+            // DUT Write Response Channel (B)
+            // ---------------------------
+            master_response_seq_item.bresp       = axi_if.bresp;
+            master_response_seq_item.bvalid      = axi_if.bvalid;
+            master_response_seq_item.bready      = axi_if.bready;
+
+            // ---------------------------
+            // REF Read Address Channel (AR)
+            // ---------------------------
+            master_response_seq_item.araddr_ref  = axi_if.araddr_ref;
+            master_response_seq_item.arvalid_ref = axi_if.arvalid_ref;
+            master_response_seq_item.arready_ref = axi_if.arready_ref;
+
+            // ---------------------------
+            // REF Read Data Channel (R)
+            // ---------------------------
+            master_response_seq_item.rdata_ref   = axi_if.rdata_ref;
+            master_response_seq_item.rresp_ref   = axi_if.rresp_ref;
+            master_response_seq_item.rvalid_ref  = axi_if.rvalid_ref;
+            master_response_seq_item.rready_ref  = axi_if.rready_ref;
+            master_response_seq_item.rlast_ref   = axi_if.rlast_ref;
+
+            // ---------------------------
+            // REF Write Address Channel (AW)
+            // ---------------------------
+            master_response_seq_item.awaddr_ref  = axi_if.awaddr_ref;
+            master_response_seq_item.awvalid_ref = axi_if.awvalid_ref;
+            master_response_seq_item.awready_ref = axi_if.awready_ref;
+
+            // ---------------------------
+            // REF Write Data Channel (W)
+            // ---------------------------
+            master_response_seq_item.wdata_ref   = axi_if.wdata_ref;
+            master_response_seq_item.wvalid_ref  = axi_if.wvalid_ref;
+            master_response_seq_item.wready_ref  = axi_if.wready_ref;
+            master_response_seq_item.wlast_ref   = axi_if.wlast_ref;
+
+            // ---------------------------
+            // REF Write Response Channel (B)
+            // ---------------------------
+            master_response_seq_item.bresp_ref   = axi_if.bresp_ref;
+            master_response_seq_item.bvalid_ref  = axi_if.bvalid_ref;
+            master_response_seq_item.bready_ref  = axi_if.bready_ref;
+
 
             // Send the captured transaction to subscribers
             master_monitor_ap.write(master_response_seq_item);

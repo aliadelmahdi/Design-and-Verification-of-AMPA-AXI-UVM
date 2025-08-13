@@ -26,8 +26,8 @@ class AXI_smoke_test extends AXI_test_base;
   // Main test body: run basic sanity sequences
   virtual task run_scenarios();
     run_on_master(AXI_master_main);
-    run_on_master(AXI_master_single_read);
     run_on_master(AXI_master_single_write);
+    run_on_master(AXI_master_single_read);
   endtask : run_scenarios
 endclass : AXI_smoke_test
 

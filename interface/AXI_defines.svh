@@ -9,6 +9,10 @@
         `define ON_n 0
         `define OFF_n  1
 
+        // ON/OFF control
+        `define ON   0
+        `define OFF  1
+
         // Read/Write control
         `define WRITE 1
         `define READ  0

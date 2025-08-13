@@ -1,0 +1,2 @@
+var g_data = {"28":["len_1","len_4","len_mid[2]","len_mid[3]","len_mid[5]","len_mid[6]","len_mid[7]","len_mid[8]","len_zero"],"29":["fixed","incr","wrap"],"30":["size_1B","size_2B","size_4B","size_8B","size_16B"],"31":["a0","a1","a2","a3","a4","a5","a6","a7"],"32":["all_ones","low_half","high_half","alternating1","alternating2"],"33":["idle","ar","r","aw","w","b","idle_to_ar","ar_to_r","r_to_idle","idle_to_aw","aw_to_w","w_to_b","b_to_idle"],"34":["okay","slverr","decerr"],"35":["READ","WRITE","read_to_write","write_to_read"]};
+processCoverpointsMapData(g_data);

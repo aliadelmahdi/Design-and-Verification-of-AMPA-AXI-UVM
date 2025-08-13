@@ -14,10 +14,7 @@
   // Read Address Channel (AR) - REF
   // ---------------------------
   addr_t  araddr_ref;   // Read address for the transaction (golden model)
-  logic   arvalid_ref;  // Indicates that the read address and control signals are valid (golden model)
-  logic   arready_ref;  // Indicates that the slave is ready to accept the read address (golden model)
-  len_t   arlen_ref;    // Burst length: number of data transfers in the burst (golden model)
-  size_t  arsize_ref;   // Burst size: number of bytes per data transfer (golden model)
-  burst_t arburst_ref;  // Burst type: FIXED, INCR, or WRAP (golden model)
+  bit     arvalid_ref;  // Indicates that the read address and control signals are valid (golden model)
+  bit     arready_ref;  // Indicates that the slave is ready to accept the read address (golden model)
   
 `endif // AXI_AR_SVH

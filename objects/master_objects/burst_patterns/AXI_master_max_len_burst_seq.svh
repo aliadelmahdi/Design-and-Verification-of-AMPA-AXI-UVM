@@ -17,9 +17,15 @@ class AXI_master_max_len_burst_seq extends AXI_master_main_sequence;
         repeat(`TEST_ITER_SMALL) begin
             configure_seq_item();
             start_item(seq_item);
-            // TODO: constrain len to max supported (e.g., 16/256 beats)
-            // assert(seq_item.randomize() with { len == MAX_LEGAL_LEN; }) else ...
-            assert(seq_item.randomize()) else $error("Master Randomization Failed");
+            assert(seq_item.randomize() with {
+               awlen == 15;
+               arlen == 15;
+            }
+            )  else begin
+                        `uvm_error("RAND_FAIL",
+                            $sformatf("[%0t] Randomization failed in %s: awlen=%0d arlen=%0d",
+                                    $time, get_name(), seq_item.awlen, seq_item.arlen))
+                    end
             finish_item(seq_item);
         end
     endtask : body

@@ -17,9 +17,15 @@ class AXI_master_incr_burst_seq extends AXI_master_main_sequence;
         repeat(`TEST_ITER_SMALL) begin
             configure_seq_item();
             start_item(seq_item);
-            // TODO: constrain burst type = INCR
-            // assert(seq_item.randomize() with { burst == BURST_INCR; }) else ...
-            assert(seq_item.randomize()) else $error("Master Randomization Failed");
+            assert(seq_item.randomize() with {
+                awburst     == BURST_INCR;
+                arburst     == BURST_INCR;
+            }
+            ) else begin
+                        `uvm_error("RAND_FAIL",
+                            $sformatf("[%0t] Randomization failed in %s: awburst=%0d arburst=%0d",
+                                    $time, get_name(), seq_item.awburst, seq_item.arburst))
+                    end
             finish_item(seq_item);
         end
     endtask : body

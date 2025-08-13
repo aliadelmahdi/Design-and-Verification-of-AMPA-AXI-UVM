@@ -45,7 +45,7 @@ class AXI_scoreboard extends uvm_scoreboard;
         forever begin
             axi_master_sb.get(master_seq_item_sb); // Get master transaction
             axi_slave_sb.get(slave_seq_item_sb);   // Get slave transaction
-            // check_results(master_seq_item_sb, slave_seq_item_sb); // Uncomment to enable checking
+            check_results(master_seq_item_sb, slave_seq_item_sb); // Uncomment to enable checking
         end
     endtask : run_phase
 
@@ -61,7 +61,7 @@ class AXI_scoreboard extends uvm_scoreboard;
     // Compare master and slave transactions
     function void check_results(AXI_master_seq_item seq_item_ch_master,
                                 AXI_slave_seq_item seq_item_ch_slave);
-        if (0) begin // Replace '0' with actual comparison condition
+        if (0) begin
             error_count++;
             `uvm_error("run_phase", "Mismatch between golden model and DUT")
             `uvm_info("MASTER", $sformatf("Master Transaction:\n%s", seq_item_ch_master.sprint()), UVM_MEDIUM)

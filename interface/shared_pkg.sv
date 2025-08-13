@@ -47,12 +47,12 @@ package shared_pkg;
 	// ---------------------------
 	// Custom typedefs for AXI signal readability and maintainability
 	typedef logic [ADDR_WIDTH - 1 : 0] addr_t; // Address type
-	typedef logic [DATA_WIDTH - 1 : 0] data_t; // Data type
+	typedef bit   [DATA_WIDTH - 1 : 0] data_t; // Data type
 	typedef logic [STRB_WIDTH - 1 : 0] strb_t; // Write strobe type (byte enables)
 	typedef logic [7 : 0] len_t;               // Burst length type (number of transfers in burst - 1)
 	typedef logic [2 : 0] size_t;              // Burst size type (bytes per transfer)
 	typedef logic [1 : 0] burst_t;             // Burst type
-	typedef logic [1 : 0] resp_t;              // Response type
+	typedef bit   [1 : 0] resp_t;              // Response type
 
 
 endpackage : shared_pkg

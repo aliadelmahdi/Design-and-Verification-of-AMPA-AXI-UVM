@@ -20,7 +20,43 @@ class AXI_master_reset_sequence extends uvm_sequence #(AXI_master_seq_item);
 
         // Start and finish the item (can include reset-specific field assignments)
         start_item(master_seq_item);
-            // Example: master_seq_item.SWRITE = `LOW; // Set control fields for reset
+        
+        // ---------------------------
+        // Global control
+        // ---------------------------
+        master_seq_item.areset_n    = `ON_n;
+        master_seq_item.start_read  = `LOW;
+        master_seq_item.start_write = `LOW;
+        master_seq_item.addr        = `LOW;
+        master_seq_item.data        = `LOW;
+
+        // ---------------------------
+        // DUT Master Inputs
+        // ---------------------------
+        master_seq_item.arready     = `LOW;
+        master_seq_item.rdata       = `LOW;
+        master_seq_item.rresp       = `LOW;
+        master_seq_item.rvalid      = `LOW;
+        master_seq_item.rlast       = `LOW;
+        master_seq_item.awready     = `LOW;
+        master_seq_item.wready      = `LOW;
+        master_seq_item.bresp       = `LOW;
+        master_seq_item.bvalid      = `LOW;
+
+        // ---------------------------
+        // REF Master Inputs
+        // ---------------------------
+        master_seq_item.arready_ref = `LOW;
+        master_seq_item.rdata_ref   = `LOW;
+        master_seq_item.rresp_ref   = `LOW;
+        master_seq_item.rvalid_ref  = `LOW;
+        master_seq_item.rlast_ref   = `LOW;
+        master_seq_item.awready_ref = `LOW;
+        master_seq_item.wready_ref  = `LOW;
+        master_seq_item.bresp_ref   = `LOW;
+        master_seq_item.bvalid_ref  = `LOW;
+
+
         finish_item(master_seq_item);
     endtask : body
     

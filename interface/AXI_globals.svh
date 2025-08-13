@@ -6,5 +6,7 @@
   logic  start_write;// Control signal to initiate a write transaction
   data_t data;
   addr_t addr;
-  
+  bit [2:0] m_fsm_state;
+  bit [2:0] s_fsm_state;
+
 `endif // AXI_GLOBALS_SVH

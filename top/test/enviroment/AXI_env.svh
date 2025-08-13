@@ -35,7 +35,7 @@ class AXI_env extends uvm_env;
         axi_master_agent.axi_master_agent_ap.connect(axi_cov.master_cov_export);
     endfunction : connect_phase
 
-    // Run Phase - optional top-level environment behavior
+    // Run Phase
     task run_phase(uvm_phase phase);
         super.run_phase(phase);
     endtask : run_phase

@@ -22,9 +22,9 @@
     input  bresp,  bvalid,
 
     // REF master outputs
-    output araddr_ref, arvalid_ref, arlen_ref, arsize_ref, arburst_ref,
-    output awaddr_ref, awvalid_ref, awlen_ref, awsize_ref, awburst_ref,
-    output wdata_ref,  wstrb_ref,  wvalid_ref, wlast_ref,
+    output araddr_ref, arvalid_ref,
+    output awaddr_ref, awvalid_ref,
+    output wdata_ref, wvalid_ref, wlast_ref,
     output rready_ref,
     output bready_ref,
 
@@ -47,13 +47,13 @@
     input  rdata,  rresp,  rvalid, rready, rlast,
     input  awaddr, awvalid, awlen, awsize, awburst, awready,
     input  wdata,  wstrb,  wvalid, wready, wlast,
-    input  bresp,  bvalid, bready,
+    input  bresp,  bvalid, bready, m_fsm_state,
 
     // REF
-    input  araddr_ref, arvalid_ref, arlen_ref, arsize_ref, arburst_ref, arready_ref,
+    input  araddr_ref, arvalid_ref, arready_ref,
     input  rdata_ref,  rresp_ref,  rvalid_ref,  rready_ref, rlast_ref,
-    input  awaddr_ref, awvalid_ref, awlen_ref, awsize_ref, awburst_ref, awready_ref,
-    input  wdata_ref,  wstrb_ref,  wvalid_ref,  wready_ref, wlast_ref,
+    input  awaddr_ref, awvalid_ref, awready_ref,
+    input  wdata_ref,  wvalid_ref,  wready_ref, wlast_ref,
     input  bresp_ref,  bvalid_ref, bready_ref
   );
 
@@ -78,9 +78,9 @@
     output bresp,  bvalid,
 
     // REF slave inputs (from ref master)
-    input  araddr_ref, arvalid_ref, arlen_ref, arsize_ref, arburst_ref,
-    input  awaddr_ref, awvalid_ref, awlen_ref, awsize_ref, awburst_ref,
-    input  wdata_ref,  wstrb_ref,  wvalid_ref, wlast_ref,
+    input  araddr_ref, arvalid_ref,
+    input  awaddr_ref, awvalid_ref,
+    input  wdata_ref,  wvalid_ref, wlast_ref,
     input  rready_ref,
     input  bready_ref,
 
@@ -103,13 +103,13 @@
     input  rdata,  rresp,  rvalid,  rready, rlast,
     input  awaddr, awvalid, awlen,  awsize, awburst, awready,
     input  wdata,  wstrb,  wvalid,  wready, wlast,
-    input  bresp,  bvalid,  bready,
+    input  bresp,  bvalid,  bready, s_fsm_state,
 
     // REF
-    input  araddr_ref, arvalid_ref, arlen_ref, arsize_ref, arburst_ref, arready_ref,
+    input  araddr_ref, arvalid_ref, arready_ref,
     input  rdata_ref,  rresp_ref,  rvalid_ref,  rready_ref, rlast_ref,
-    input  awaddr_ref, awvalid_ref, awlen_ref,  awsize_ref, awburst_ref, awready_ref,
-    input  wdata_ref,  wstrb_ref,  wvalid_ref,  wready_ref, wlast_ref,
+    input  awaddr_ref, awvalid_ref, awready_ref,
+    input  wdata_ref,  wvalid_ref,  wready_ref, wlast_ref,
     input  bresp_ref,  bvalid_ref,  bready_ref
   );
 
@@ -118,9 +118,9 @@
   // ------------------------------------------------------------
   modport master_gld (
     // REF master outputs
-    output araddr_ref, arvalid_ref, arlen_ref, arsize_ref, arburst_ref,
-    output awaddr_ref, awvalid_ref, awlen_ref, awsize_ref, awburst_ref,
-    output wdata_ref,  wstrb_ref,  wvalid_ref, wlast_ref,
+    output araddr_ref, arvalid_ref, arlen, arsize, arburst,
+    output awaddr_ref, awvalid_ref, awlen, awsize, awburst,
+    output wdata_ref,  wstrb,  wvalid_ref, wlast_ref,
     output rready_ref,
     output bready_ref,
 
@@ -175,9 +175,9 @@
   // ------------------------------------------------------------
   modport slave_gld (
     // REF slave inputs
-    input  araddr_ref, arvalid_ref, arlen_ref, arsize_ref, arburst_ref, aclk, areset_n,
-    input  awaddr_ref, awvalid_ref, awlen_ref, awsize_ref, awburst_ref,
-    input  wdata_ref,  wstrb_ref,  wvalid_ref, wlast_ref,
+    input  araddr_ref, arvalid_ref, arlen, arsize, arburst, aclk, areset_n,
+    input  awaddr_ref, awvalid_ref, awlen, awsize, awburst,
+    input  wdata_ref,  wstrb,  wvalid_ref, wlast_ref,
     input  rready_ref,
     input  bready_ref,
 

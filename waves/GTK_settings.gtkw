@@ -1,0 +1,82 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Aug 13 00:35:52 2025
+[*]
+[dumpfile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\AMPA-AXI\waves\waves.vcd"
+[dumpfile_mtime] "Wed Aug 13 00:31:43 2025"
+[dumpfile_size] 387122
+[savefile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\AMPA-AXI\waves\GTK_settings.gtkw"
+[timestart] 0
+[size] 1920 1009
+[pos] -1 -1
+*-6.000000 604 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_top.
+[sst_width] 197
+[signals_width] 274
+[sst_expanded] 1
+[sst_vpaned_height] 297
+@28
+tb_top.axi_if.aclk
+tb_top.axi_if.areset_n
+@22
+tb_top.axi_if.addr[31:0]
+tb_top.axi_if.data[31:0]
+@28
+tb_top.axi_if.start_write
+tb_top.axi_if.start_read
+@200
+-Master
+@24
+tb_top.master_gld.state[2:0]
+@200
+-Slave
+@24
+tb_top.slave_gld.state[2:0]
+@200
+-AR Channel
+@22
+tb_top.axi_if.arlen[7:0]
+@28
+tb_top.axi_if.arburst[1:0]
+tb_top.axi_if.arsize[2:0]
+tb_top.axi_if.arvalid_ref
+tb_top.axi_if.arready_ref
+@22
+tb_top.axi_if.araddr_ref[31:0]
+@200
+-R channel
+@22
+tb_top.axi_if.rdata_ref[31:0]
+@28
+tb_top.axi_if.rlast_ref
+tb_top.axi_if.rready_ref
+tb_top.axi_if.rvalid_ref
+@200
+-AW Channel
+@28
+tb_top.axi_if.awready_ref
+tb_top.axi_if.awvalid_ref
+tb_top.axi_if.awburst[1:0]
+@22
+tb_top.axi_if.awlen[7:0]
+tb_top.axi_if.awaddr_ref[31:0]
+@200
+-W Channel
+@22
+tb_top.axi_if.wdata_ref[31:0]
+@28
+tb_top.axi_if.wlast_ref
+@29
+tb_top.axi_if.wready_ref
+@28
+tb_top.axi_if.wvalid_ref
+@22
+tb_top.axi_if.wstrb[3:0]
+@200
+-B Channel
+@28
+tb_top.axi_if.bresp_ref[1:0]
+tb_top.axi_if.bready_ref
+tb_top.axi_if.bvalid_ref
+[pattern_trace] 1
+[pattern_trace] 0
